@@ -1,28 +1,43 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Frontend passion",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Adam Młynarczyk <adam.wiktor.mlynarczyk@gmail.com>",
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
+    "gatsby-plugin-ts": "^2.7.1",
+    "gatsby-plugin-ts-config": "^1.1.5",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-transformer-sharp": "^2.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-spring": "^8.0.27",
+    "react-typing-animation": "^1.6.2",
+    "react-visibility-sensor": "^5.1.1",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-typing-animation": "^1.6.2",
+    "@types/styled-components": "^5.1.7",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "prettier": "2.2.1"
   },
   "keywords": [
-    "gatsby"
+    "portfolio"
   ],
   "license": "0BSD",
   "scripts": {
@@ -32,11 +47,12 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/mlynek600/portfolio-new"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
