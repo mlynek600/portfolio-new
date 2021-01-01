@@ -2,14 +2,12 @@ import React, { ReactChildren, ReactElement } from 'react'
 import styled from 'styled-components'
 
 type Props = {
-  children: ReactChildren | ReactElement | JSX.Element[];
+  children: ReactChildren | ReactElement | JSX.Element[]
 }
 
 const ContentContainer: React.FC<Props> = ({ children }) => (
   <Wrapper>
-    <GridContainer>
-      {children}
-    </GridContainer>
+    <GridContainer>{children}</GridContainer>
   </Wrapper>
 )
 
@@ -36,7 +34,7 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   grid-template-columns: 1fr;
   padding: 0 16px;
- 
+
   @media (min-width: ${({ theme }) => theme.rwd.mobile.maxWidth}) {
     display: grid;
     grid-template-columns: repeat(8, 1fr);

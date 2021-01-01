@@ -4,7 +4,7 @@ export default {
     deepRed: '#932432',
     purple: '#3C1874',
     purpleGrey: '#283747',
-    cloud: '#F3F3F3'
+    cloud: '#F3F3F3',
   },
   fonts: {
     light: 'MontserratLight',

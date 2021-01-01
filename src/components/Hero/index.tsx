@@ -2,38 +2,36 @@ import React from 'react'
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
-import ImageLayer from '../UI/ImageLayer'
+import CodeIcon from '../../images/code.svg'
+
 import ContentContainer, {
   Wrapper as ContentWrapper,
 } from '../UI/ContentContainer'
 import Navigation from '../Navigation'
 
 const Hero: React.FC = () => {
-
   return (
     <Wrapper id="hero">
-      <Background>
-        {/* <ImageLayer src={} />
-        <ImageLayer src={} isMobile /> */}
-      </Background>
-
       <ContentContainer>
         <Navigation />
 
         <HeroContainer>
           <HeroContentContainer>
             <Title>
-              Adam Młynarczyk <br />
-              Front-end developer
+              Hi, I'm Adam
+              <br />
+              <Subtitle>Front-end developer</Subtitle>
             </Title>
-
-            <SubTitle>I love programming</SubTitle>
 
             <Button>
               <ButtonText onClick={() => scrollTo('#contact')}>
                 Hire me
               </ButtonText>
             </Button>
+
+            <CodeIconContainer>
+              <CodeIcon />
+            </CodeIconContainer>
           </HeroContentContainer>
         </HeroContainer>
       </ContentContainer>
@@ -44,6 +42,7 @@ const Hero: React.FC = () => {
 const Wrapper = styled.section`
   width: 100%;
   position: relative;
+  height: 100vh;
 
   ${ContentWrapper} {
     padding-top: 30px;
@@ -69,14 +68,15 @@ const HeroContainer = styled.div`
   }
 `
 
-const HeroContentContainer = styled.div``
-
-const Background = styled.div`
+const CodeIconContainer = styled.div`
+  height: 250px;
+  width: 250px;
   position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+  right: 250px;
+  top: 200px;
 `
+
+const HeroContentContainer = styled.div``
 
 const Title = styled.h1`
   max-width: 456px;
@@ -97,12 +97,8 @@ const Title = styled.h1`
   }
 `
 
-const SubTitle = styled.h3`
-  line-height: 35px;
-  max-width: 620px;
-  color: ${({ theme }) => theme.colors.purple};
-  font-size: ${({ theme }) => theme.fontSize.bigText};
-  font-family: ${({ theme }) => theme.fonts.light};
+const Subtitle = styled.h1`
+  font-size: ${({ theme }) => theme.fontSize.s25};
 `
 
 const Button = styled.button`

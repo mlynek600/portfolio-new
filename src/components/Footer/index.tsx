@@ -8,24 +8,16 @@ import ContentContainer, {
 
 import FacebookIcon from '../../images/facebookIcon.svg'
 import LinkedinIcon from '../../images/linkedinIcon.svg'
-import FacebookWhiteIcon from '../../images/facebookWhiteIcon.svg'
-import LinkedinWhiteIcon from '../../images/linkedinWhiteIcon.svg'
-
-import ImageLayer from '../UI/ImageLayer'
-import { useWindowSize } from '../../hooks'
 
 const Footer: React.FC = () => {
-  const { width } = useWindowSize()
-  const isSmallDevice = width < 768
-
   const SOCIALS_DATA: { icon: string; link: string }[] = [
     {
-      icon: isSmallDevice ? FacebookWhiteIcon : FacebookIcon,
-      link: "facebook",
+      icon: FacebookIcon,
+      link: 'facebook',
     },
     {
-      icon: isSmallDevice ? LinkedinWhiteIcon : LinkedinIcon,
-      link: "linkedin",
+      icon: LinkedinIcon,
+      link: 'linkedin',
     },
   ]
 
@@ -35,17 +27,12 @@ const Footer: React.FC = () => {
     </SocialLink>
   ))
 
-  const phone = ""
-  const email = ""
+  const phone = ''
+  const email = ''
 
   return (
     <Wrapper id="contact">
       <FooterContainer>
-        <Background>
-          {/* <ImageLayer src={} />
-          <ImageLayer src={} isMobile /> */}
-        </Background>
-
         <ContentContainer>
           <FooterMenuContainer>
             <button onClick={() => scrollTo('#hero')}>
@@ -62,7 +49,6 @@ const Footer: React.FC = () => {
                   {email}
                 </Info>
               </InfoColumn>
-
             </InfoContainer>
 
             <MobileSocialsContainer>
@@ -95,13 +81,6 @@ const Wrapper = styled.section`
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     margin-top: 50px;
   }
-`
-
-const Background = styled.div`
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
 `
 
 const FooterContainer = styled.div`
@@ -175,16 +154,6 @@ const Info = styled.p<{ as?: string }>`
     padding: 0;
     max-width: 190px;
     font-size: ${({ theme }) => theme.fontSize.text};
-  }
-`
-
-const Logo = styled.img`
-  width: 120px;
-  height: 47px;
-
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
-    width: 155px;
-    height: 60px;
   }
 `
 

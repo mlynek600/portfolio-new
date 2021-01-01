@@ -1,4 +1,4 @@
-const servicesData = {
+const skillsData = {
   text: "Let's create something ",
   words: [
     'Big',
@@ -11,4 +11,4 @@ const servicesData = {
   ],
 }
 
-export default servicesData
+export default skillsData

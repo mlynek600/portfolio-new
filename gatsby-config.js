@@ -7,7 +7,6 @@ module.exports = {
     keywords: ['Frontend developer'],
   },
   plugins: [
-    'gatsby-plugin-ts',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -30,7 +29,6 @@ module.exports = {
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-ts-config',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -40,5 +38,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-smoothscroll',
+    'gatsby-plugin-ts-config',
   ],
 }

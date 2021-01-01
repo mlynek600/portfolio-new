@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Seo from '../components/Seo'
 import Layout from '../components/layout'
 import Hero from '../components/Hero'
-import Technologies from '../components/Technologies/Technologies'
+import Skills from '../components/Skills/Skills'
 import { ProjectsSection } from '../components/Projects/ProjectsSection'
 import Footer from '../components/Footer'
 import MobileMenu from '../components/MobileMenu'
@@ -16,7 +16,7 @@ const IndexPage: React.FC = () => (
       <MobileMenu />
 
       <Hero />
-      <Technologies />
+      <Skills />
       <ProjectsSection />
       <Background>
         <Footer />

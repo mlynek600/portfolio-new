@@ -24,16 +24,6 @@ const Wrapper = styled.nav`
   justify-content: space-between;
 `
 
-const Logo = styled.img`
-  width: 128px;
-  height: 50px;
-
-  @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
-    width: 160px;
-    height: 63px;
-  }
-`
-
 const NavigationLinksContainer = styled.div`
   display: none;
   @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {

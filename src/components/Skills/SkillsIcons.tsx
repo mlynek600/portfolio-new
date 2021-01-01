@@ -8,8 +8,18 @@ import SassIcon from '../../images/sass.svg'
 import NextIcon from '../../images/next.svg'
 import ProtractorIcon from '../../images/protractor.svg'
 import NodeIcon from '../../images/node.svg'
+import BootstrapIcon from '../../images/bootstrap.svg'
+import FigmaIcon from '../../images/figma.svg'
+import GatsbyIcon from '../../images/gatsby.svg'
+import GitIcon from '../../images/git.svg'
+import GraphQLIcon from '../../images/graphql.svg'
+import JavaScriptIcon from '../../images/javascript.svg'
+import JestIcon from '../../images/jest.svg'
+import JiraIcon from '../../images/jira.svg'
+import LodashIcon from '../../images/lodash.svg'
+import VSCodeIcon from '../../images/vscode.svg'
 
-const TechnologiesIcons: React.FC = () => {
+const SkillsIcons: React.FC = () => {
   return (
     <Wrapper>
       <TypeScriptIcon />
@@ -19,6 +29,16 @@ const TechnologiesIcons: React.FC = () => {
       <ProtractorIcon />
       <NodeIcon />
       <NextIcon />
+      <BootstrapIcon />
+      <FigmaIcon />
+      <GatsbyIcon />
+      <GitIcon />
+      <GraphQLIcon />
+      <JavaScriptIcon />
+      <JestIcon />
+      <JiraIcon />
+      <LodashIcon />
+      <VSCodeIcon />
     </Wrapper>
   )
 }
@@ -78,4 +98,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default TechnologiesIcons
+export default SkillsIcons

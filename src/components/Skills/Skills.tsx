@@ -5,21 +5,19 @@ import Typing from 'react-typing-animation'
 import ContentContainer from '../UI/ContentContainer'
 import SectionTitle from '../SectionTitle'
 
-import TechnologiesIcons from './TechnologiesIcons'
-import technolgiesData from './technologiesData'
+import SkillsIcons from './SkillsIcons'
+import skillsData from './skillsData'
 
-const Technologies: React.FC = () => {
+const Skills: React.FC = () => {
   const [animatedCounter, setAnimatedCounter] = useState(1)
-  const [animatedText, setAnimatedText] = useState(
-    technolgiesData.words[0]
-  )
+  const [animatedText, setAnimatedText] = useState(skillsData.words[0])
   const [textLength, setTextLength] = useState(animatedText.length)
 
   const onFinishedTyping = () => {
-    const newText = technolgiesData.words[animatedCounter]
+    const newText = skillsData.words[animatedCounter]
     setAnimatedText(newText)
     setTextLength(newText.length)
-    if (animatedCounter === technolgiesData.words.length - 1) {
+    if (animatedCounter === skillsData.words.length - 1) {
       setAnimatedCounter(0)
     } else {
       setAnimatedCounter(animatedCounter + 1)
@@ -27,11 +25,11 @@ const Technologies: React.FC = () => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper id="skills">
       <ContentContainer>
-        <SectionTitle text="Technologies" />
-        <TechnologiesIcons />
-        <Text>{technolgiesData.text}</Text>
+        <SectionTitle text="Skills" />
+        <SkillsIcons />
+        <Text>{skillsData.text}</Text>
         <AnimationWrapper>
           <Typing
             hideCursor
@@ -137,4 +135,4 @@ const AnimatedText = styled.h1`
   }
 `
 
-export default Technologies
+export default Skills
