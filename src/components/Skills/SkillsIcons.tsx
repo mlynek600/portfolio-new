@@ -13,11 +13,8 @@ import FigmaIcon from '../../images/figma.svg'
 import GatsbyIcon from '../../images/gatsby.svg'
 import GitIcon from '../../images/git.svg'
 import GraphQLIcon from '../../images/graphql.svg'
-import JavaScriptIcon from '../../images/javascript.svg'
 import JestIcon from '../../images/jest.svg'
 import JiraIcon from '../../images/jira.svg'
-import LodashIcon from '../../images/lodash.svg'
-import VSCodeIcon from '../../images/vscode.svg'
 
 const SkillsIcons: React.FC = () => {
   return (
@@ -25,20 +22,17 @@ const SkillsIcons: React.FC = () => {
       <TypeScriptIcon />
       <ReactIcon />
       <ReduxIcon />
-      <SassIcon />
-      <ProtractorIcon />
       <NodeIcon />
       <NextIcon />
-      <BootstrapIcon />
-      <FigmaIcon />
       <GatsbyIcon />
-      <GitIcon />
       <GraphQLIcon />
-      <JavaScriptIcon />
+      <SassIcon />
+      <BootstrapIcon />
+      <GitIcon />
+      <ProtractorIcon />
       <JestIcon />
+      <FigmaIcon />
       <JiraIcon />
-      <LodashIcon />
-      <VSCodeIcon />
     </Wrapper>
   )
 }
