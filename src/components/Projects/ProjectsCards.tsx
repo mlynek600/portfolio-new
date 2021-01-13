@@ -33,11 +33,12 @@ const PackagesCards: React.FC = () => {
     },
   }
 
-  const cardElements = projectsData.map(data => {
-    const { name, description, link } = data
+  const cardElements = projectsData.ownProjects.map(data => {
+    const { name, icon, description, link } = data
 
     return (
       <ProjectCard
+        icon={icon}
         link={link}
         key={name}
         name={name}

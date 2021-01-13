@@ -17,7 +17,7 @@ const Navigation: React.FC = () => (
 
 const Wrapper = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 `
 
 const NavigationLinksContainer = styled.div`

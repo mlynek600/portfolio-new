@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import ContentContainer from '../UI/ContentContainer'
@@ -9,11 +9,31 @@ import VisibilitySensor from '../VisibilitySensor'
 import FadeInAnimation from '../UI/FadeInAnimation'
 
 export const ProjectsSection: React.FC = () => {
+  const categories = ['Commercial', 'Own']
+  type CategoriesType = typeof categories[number]
+
+  const [activeButton, setActiveButton] = useState<CategoriesType>(
+    'Commercial'
+  )
+
+  const categoryButtons = categories.map(category => (
+    <CategoryButton
+      key={category}
+      isActive={activeButton === category}
+      onClick={() => setActiveButton(category)}
+    >
+      <CategoryButtonText>{category}</CategoryButtonText>
+    </CategoryButton>
+  ))
+
   return (
     <Wrapper id="projects">
       <ContentContainer>
         <SectionTitle text="Projects" />
+
         <SectionStyle>
+          <CategoriesContainer>{categoryButtons}</CategoriesContainer>
+
           <VisibilitySensor once>
             {({ isVisible }) => (
               <FadeInAnimation isVisible={isVisible}>
@@ -52,3 +72,15 @@ const SectionStyle = styled.div`
     padding-top: 30px;
   }
 `
+
+const CategoriesContainer = styled.div`
+  display: flex;
+  padding-top: 30px;
+`
+
+const CategoryButton = styled.button<{ isActive: boolean }>`
+  padding: 0px 30px;
+  text-decoration: ${props => (props.isActive ? 'underline' : 'none')};
+`
+
+const CategoryButtonText = styled.h1``
