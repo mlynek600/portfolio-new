@@ -18,22 +18,9 @@ const IndexPage: React.FC = () => (
       <Hero />
       <Skills />
       <ProjectsSection />
-      <Background>
-        <Footer />
-      </Background>
+      <Footer />
     </Layout>
   </>
 )
-const Background = styled.div`
-  padding-top: 25px;
-  height: auto;
-  background: #fafafa;
-  z-index: -10;
-  position: absolute;
-  width: 100%;
-  @media (max-width: ${({ theme }) => theme.rwd.mobile.maxWidth}) {
-    margin-top: 20px;
-    padding-top: 1px;
-  }
-`
+
 export default IndexPage

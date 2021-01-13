@@ -1,5 +1,4 @@
 import React from 'react'
-import scrollTo from 'gatsby-plugin-smoothscroll'
 import styled, { css } from 'styled-components'
 import ContentContainer, {
   GridContainer,
@@ -8,16 +7,26 @@ import ContentContainer, {
 
 import FacebookIcon from '../../images/facebookIcon.svg'
 import LinkedinIcon from '../../images/linkedinIcon.svg'
+import CodewarsIcon from '../../images/codewarsIcon.svg'
+import GithubIcon from '../../images/githubIcon.svg'
 
 const Footer: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [
     {
-      icon: FacebookIcon,
-      link: 'facebook',
+      icon: GithubIcon,
+      link: 'https://github.com/mlynek600',
     },
     {
       icon: LinkedinIcon,
-      link: 'linkedin',
+      link: 'https://www.linkedin.com/in/mlynek600/',
+    },
+    {
+      icon: CodewarsIcon,
+      link: 'https://www.codewars.com/users/mlynek600',
+    },
+    {
+      icon: FacebookIcon,
+      link: 'https://www.facebook.com/mlynek600/',
     },
   ]
 
@@ -27,21 +36,20 @@ const Footer: React.FC = () => {
     </SocialLink>
   ))
 
-  const phone = ''
-  const email = ''
+  const phone = '+48 788 512 824'
+  const email = 'adam.wiktor.mlynarczyk@gmail.com'
+
+  const year = new Date().getFullYear()
+  const copyright = '\u00A9'
 
   return (
     <Wrapper id="contact">
       <FooterContainer>
         <ContentContainer>
           <FooterMenuContainer>
-            <button onClick={() => scrollTo('#hero')}>
-              {/* <Logo src={} alt="" /> */}
-            </button>
-
             <InfoContainer>
               <InfoColumn>
-                <Title>Get in touch</Title>
+                <Title>Contact me</Title>
                 <Info as="a" href={`tel:${phone}`}>
                   {phone}
                 </Info>
@@ -61,11 +69,7 @@ const Footer: React.FC = () => {
       <ContentContainer>
         <FooterBottom>
           <RightsInfo>
-            2020
-            <PageLink as="a" href="">
-              {' Adam Młynarczyk'}
-            </PageLink>
-            {', All Rights Reserved.'}
+            Adam Młynarczyk {copyright} {year}
           </RightsInfo>
 
           <SocialsContainer>{socialComponents}</SocialsContainer>
@@ -77,6 +81,13 @@ const Footer: React.FC = () => {
 
 const Wrapper = styled.section`
   margin-top: 100px;
+
+  background: rgb(243, 243, 243);
+  background: linear-gradient(
+    180deg,
+    rgba(243, 243, 243, 1) 0%,
+    rgba(60, 24, 116, 0.3085609243697479) 88%
+  );
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     margin-top: 50px;
@@ -102,7 +113,7 @@ const FooterContainer = styled.div`
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
-      padding-bottom: 168px;
+      padding-bottom: 128px;
     }
   }
 `
@@ -133,7 +144,7 @@ const InfoColumn = styled.div`
 const Info = styled.p<{ as?: string }>`
   display: block;
   font-size: ${({ theme }) => theme.fontSize.semiText};
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.purple};
 
   ${({ as }) =>
     as === 'a' &&
@@ -142,12 +153,12 @@ const Info = styled.p<{ as?: string }>`
       transition: color 0.2s ease-in-out;
 
       :hover {
-        color: ${({ theme }) => theme.colors.purple};
+        color: ${({ theme }) => theme.colors.red};
       }
     `};
 
   :first-of-type {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
@@ -158,7 +169,7 @@ const Info = styled.p<{ as?: string }>`
 `
 
 const Title = styled.h3`
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${({ theme }) => theme.fontSize.s20};
   color: ${({ theme }) => theme.colors.red};
@@ -209,10 +220,6 @@ const RightsInfo = styled.p`
   @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
     font-size: ${({ theme }) => theme.fontSize.semiText};
   }
-`
-
-const PageLink = styled(RightsInfo)`
-  color: ${({ theme }) => theme.colors.purple};
 `
 
 export default Footer

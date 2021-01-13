@@ -4,33 +4,23 @@ import styled from 'styled-components'
 import ContentContainer from '../UI/ContentContainer'
 import SectionTitle from '../SectionTitle'
 
-import { ProjectCard } from './ProjectCard'
+import ProjectsCards from './ProjectsCards'
 import VisibilitySensor from '../VisibilitySensor'
 import FadeInAnimation from '../UI/FadeInAnimation'
 
-import { projectsData } from './ProjectsData'
-
-
 export const ProjectsSection: React.FC = () => {
-
-
   return (
     <Wrapper id="projects">
       <ContentContainer>
         <SectionTitle text="Projects" />
         <SectionStyle>
-          {projectsData.map(project => (
-            <VisibilitySensor key={project.name} once>
-              {({ isVisible }) => (
-                <FadeInAnimation isVisible={isVisible}>
-                  <ProjectCard
-                    name={project.name}
-                    description={project.description}
-                  />
-                </FadeInAnimation>
-              )}
-            </VisibilitySensor>
-          ))}
+          <VisibilitySensor once>
+            {({ isVisible }) => (
+              <FadeInAnimation isVisible={isVisible}>
+                <ProjectsCards />
+              </FadeInAnimation>
+            )}
+          </VisibilitySensor>
         </SectionStyle>
       </ContentContainer>
     </Wrapper>

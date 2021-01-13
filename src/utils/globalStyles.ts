@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-weight: normal;
     font-family: MontserratRegular;
-    color: #212121;
+    color: #283747;
   }
   
   a {

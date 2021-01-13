@@ -12,7 +12,7 @@ const MobileMenu: React.FC = () => (
         <span>Home</span>
       </MobileLinkItem>
 
-      {navigationData.map((navigationItem) => {
+      {navigationData.map(navigationItem => {
         const { scrollToId, text } = navigationItem
         const IconComponent = navigationItem.iconComponent
 

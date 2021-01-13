@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import Typing from 'react-typing-animation'
 import CodeIcon from '../../images/code.svg'
+import VisibilitySensor from '../VisibilitySensor'
+import FadeInAnimation from '../UI/FadeInAnimation'
 
 import aboutMeData from './aboutMeData'
 
@@ -63,7 +65,13 @@ const Hero: React.FC = () => {
             </Button>
 
             <CodeIconContainer>
-              <CodeIcon />
+              <VisibilitySensor once>
+                {({ isVisible }) => (
+                  <FadeInAnimation isVisible={isVisible} fromRight>
+                    <CodeIcon />
+                  </FadeInAnimation>
+                )}
+              </VisibilitySensor>
             </CodeIconContainer>
           </HeroContentContainer>
         </HeroContainer>
@@ -114,17 +122,6 @@ const CodeIconContainer = styled.div`
   position: absolute;
   right: 250px;
   top: 200px;
-  animation: spin 3s ease-in-out infinite;
-  animation-fill-mode: forwards;
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(180deg);
-    }
-  }
 `
 
 const HeroContentContainer = styled.div``
@@ -152,14 +149,14 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   border-radius: 40px;
-  padding: 25px 30px;
+  padding: 20px 25px;
   margin-top: 40px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
   background-color: ${({ theme }) => theme.colors.cloud};
   transition: box-shadow 0.2s ease-in-out;
 
   :hover {
-    box-shadow: none;
+    box-shadow: 0 4px 10px 0 ${({ theme }) => theme.colors.purple};
   }
 `
 
@@ -233,7 +230,7 @@ const AnimatedText = styled.h1`
 const AboutMe = styled.div`
   margin-left: 100px;
   display: flex;
-  width: 525px;
+  width: 540px;
   justify-content: space-between;
 `
 

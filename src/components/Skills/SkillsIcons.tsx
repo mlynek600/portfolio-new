@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Transition } from 'react-spring/renderprops'
 
 import TypeScriptIcon from '../../images/typescript.svg'
 import ReactIcon from '../../images/reacticon.svg'
@@ -15,25 +16,46 @@ import GitIcon from '../../images/git.svg'
 import GraphQLIcon from '../../images/graphql.svg'
 import JestIcon from '../../images/jest.svg'
 import JiraIcon from '../../images/jira.svg'
+import VisibilitySensor from '../VisibilitySensor'
 
 const SkillsIcons: React.FC = () => {
+  const icons = [
+    <TypeScriptIcon key="TypeScriptIcon" />,
+    <ReactIcon key="ReactIcon" />,
+    <ReduxIcon key="ReduxIcon" />,
+    <NodeIcon key="NodeIcon" />,
+    <NextIcon key="NextIcon" />,
+    <GatsbyIcon key="GatsbyIcon" />,
+    <GraphQLIcon key="GraphQLIcon" />,
+    <SassIcon key="SassIcon" />,
+    <BootstrapIcon key="BootstrapIcon" />,
+    <GitIcon key="GitIcon" />,
+    <ProtractorIcon key="ProtractorIcon" />,
+    <JestIcon key="JestIcon" />,
+    <FigmaIcon key="FigmaIcon" />,
+    <JiraIcon key="JiraIcon" />,
+  ]
+
   return (
-    <Wrapper>
-      <TypeScriptIcon />
-      <ReactIcon />
-      <ReduxIcon />
-      <NodeIcon />
-      <NextIcon />
-      <GatsbyIcon />
-      <GraphQLIcon />
-      <SassIcon />
-      <BootstrapIcon />
-      <GitIcon />
-      <ProtractorIcon />
-      <JestIcon />
-      <FigmaIcon />
-      <JiraIcon />
-    </Wrapper>
+    <VisibilitySensor once>
+      {({ isVisible }) => (
+        <Wrapper>
+          {isVisible && (
+            <Transition
+              items={icons}
+              //eslint-disable-next-line
+              //@ts-ignore-next-line
+              keys={item => item.key}
+              from={{ transform: 'translate3d(0,-40px,0)', opacity: 0 }}
+              enter={{ transform: 'translate3d(0,0px,0)', opacity: 1 }}
+              trail={100}
+            >
+              {item => props => <div style={props}>{item}</div>}
+            </Transition>
+          )}
+        </Wrapper>
+      )}
+    </VisibilitySensor>
   )
 }
 
@@ -42,6 +64,8 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 30px;
+  margin-top: 40px;
+  height: 480px;
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     padding-top: 50px;
