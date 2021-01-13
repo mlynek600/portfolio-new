@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import Typing from 'react-typing-animation'
-import CodeIcon from '../../images/code.svg'
+import CodeImage from '../../images/hero/codeImage.svg'
 import VisibilitySensor from '../VisibilitySensor'
 import FadeInAnimation from '../UI/FadeInAnimation'
 
@@ -64,15 +64,15 @@ const Hero: React.FC = () => {
               </ButtonText>
             </Button>
 
-            <CodeIconContainer>
+            <CodeImageContainer>
               <VisibilitySensor once>
                 {({ isVisible }) => (
                   <FadeInAnimation isVisible={isVisible} fromRight>
-                    <CodeIcon />
+                    <CodeImage />
                   </FadeInAnimation>
                 )}
               </VisibilitySensor>
-            </CodeIconContainer>
+            </CodeImageContainer>
           </HeroContentContainer>
         </HeroContainer>
       </ContentContainer>
@@ -116,7 +116,7 @@ const HeroContainer = styled.div`
   }
 `
 
-const CodeIconContainer = styled.div`
+const CodeImageContainer = styled.div`
   height: 250px;
   width: 250px;
   position: absolute;

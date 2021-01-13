@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import GithubIcon from '../../images/githubIcon.svg'
+import GithubIcon from '../../images/githubIconGray.svg'
 
 type ProjectCardProps = {
   name: string
@@ -70,12 +70,10 @@ const Description = styled.p`
 `
 
 const GithubIconContainer = styled.a`
-  padding: 7px 30px;
   position: absolute;
   bottom: 35px;
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
-    padding: 10px 35px;
     bottom: 45px;
   }
 `

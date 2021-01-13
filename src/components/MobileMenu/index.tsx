@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import navigationData from '../../constants/navigation'
-import HomeIcon from '../../images/homeIcon.svg'
+import HomeIcon from '../../images/mobileMenu/homeIcon.svg'
 
 const MobileMenu: React.FC = () => (
   <Wrapper>

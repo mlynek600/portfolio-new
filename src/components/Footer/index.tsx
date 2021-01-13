@@ -5,10 +5,10 @@ import ContentContainer, {
   Wrapper as ContentWrapper,
 } from '../UI/ContentContainer'
 
-import FacebookIcon from '../../images/facebookIcon.svg'
-import LinkedinIcon from '../../images/linkedinIcon.svg'
-import CodewarsIcon from '../../images/codewarsIcon.svg'
-import GithubIcon from '../../images/githubIcon.svg'
+import FacebookIcon from '../../images/footer/facebookIcon.svg'
+import LinkedinIcon from '../../images/footer/linkedinIcon.svg'
+import CodewarsIcon from '../../images/footer/codewarsIcon.svg'
+import GithubIcon from '../../images/footer/githubIcon.svg'
 
 const Footer: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [

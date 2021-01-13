@@ -1,6 +1,6 @@
-import ProjectsIcon from '../images/projectsIcon.svg'
-import ContactIcon from '../images/contactIcon.svg'
-import SkillsIcon from '../images/skillsIcon.svg'
+import ProjectsIcon from '../images/mobileMenu/projectsIcon.svg'
+import ContactIcon from '../images/mobileMenu/contactIcon.svg'
+import SkillsIcon from '../images/mobileMenu/skillsIcon.svg'
 
 export default [
   {

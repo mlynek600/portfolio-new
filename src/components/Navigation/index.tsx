@@ -5,10 +5,6 @@ import navigationData from '../../constants/navigation'
 
 const Navigation: React.FC = () => (
   <Wrapper>
-    <button onClick={() => window.scrollTo({ top: 0 })}>
-      {/* <Logo src={} /> */}
-    </button>
-
     <NavigationLinksContainer>
       {navigationData.map(({ text, scrollToId }) => (
         <LinkItem key={scrollToId} onClick={() => scrollTo(scrollToId)}>
