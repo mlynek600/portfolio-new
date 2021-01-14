@@ -9,18 +9,19 @@ import VisibilitySensor from '../VisibilitySensor'
 import FadeInAnimation from '../UI/FadeInAnimation'
 
 export const ProjectsSection: React.FC = () => {
-  const categories = ['Commercial', 'Own']
-  type CategoriesType = typeof categories[number]
+  const projectsCategories = ['Commercial', 'Own']
+  type ProjectCategoriesType = typeof projectsCategories[number]
 
-  const [activeButton, setActiveButton] = useState<CategoriesType>(
-    'Commercial'
-  )
+  const [
+    projectsCategory,
+    setProjectsCategory,
+  ] = useState<ProjectCategoriesType>('Commercial')
 
-  const categoryButtons = categories.map(category => (
+  const categoryButtons = projectsCategories.map(category => (
     <CategoryButton
       key={category}
-      isActive={activeButton === category}
-      onClick={() => setActiveButton(category)}
+      isActive={projectsCategory === category}
+      onClick={() => setProjectsCategory(category)}
     >
       <CategoryButtonText>{category}</CategoryButtonText>
     </CategoryButton>
@@ -37,7 +38,7 @@ export const ProjectsSection: React.FC = () => {
           <VisibilitySensor once>
             {({ isVisible }) => (
               <FadeInAnimation isVisible={isVisible}>
-                <ProjectsCards />
+                <ProjectsCards category={projectsCategory} />
               </FadeInAnimation>
             )}
           </VisibilitySensor>

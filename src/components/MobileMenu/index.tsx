@@ -8,7 +8,9 @@ const MobileMenu: React.FC = () => (
   <Wrapper>
     <MobileNavigationContainer>
       <MobileLinkItem onClick={() => scrollTo('#hero')}>
-        <HomeIcon />
+        <HomeIconContainer>
+          <HomeIcon />
+        </HomeIconContainer>
         <span>Home</span>
       </MobileLinkItem>
 
@@ -21,7 +23,7 @@ const MobileMenu: React.FC = () => (
             key={scrollToId}
             onClick={() => scrollTo(scrollToId)}
           >
-            <IconComponent />
+            {IconComponent}
             <span>{text}</span>
           </MobileLinkItem>
         )
@@ -49,6 +51,7 @@ const Wrapper = styled.div`
 
 const MobileNavigationContainer = styled.nav`
   display: flex;
+  align-items: flex-end;
 `
 
 const MobileLinkItem = styled.button`
@@ -77,6 +80,10 @@ const MobileLinkItem = styled.button`
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     margin-right: 40px;
   }
+`
+
+const HomeIconContainer = styled.div`
+  width: 26px;
 `
 
 export default MobileMenu

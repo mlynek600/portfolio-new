@@ -9,7 +9,11 @@ import { useWindowSize } from '../../hooks'
 import ProjectCard from './ProjectCard'
 import { projectsData } from './projectsData'
 
-const PackagesCards: React.FC = () => {
+type PackagesCardsProps = {
+  category: 'Commercial' | 'Own'
+}
+
+const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
   const { width } = useWindowSize()
 
   const deviceType =
@@ -33,7 +37,12 @@ const PackagesCards: React.FC = () => {
     },
   }
 
-  const cardElements = projectsData.ownProjects.map(data => {
+  const projectsCategoryData =
+    category === 'Commercial'
+      ? projectsData.commercialProjects
+      : projectsData.ownProjects
+
+  const cardElements = projectsCategoryData.map(data => {
     const { name, icon, description, link } = data
 
     return (

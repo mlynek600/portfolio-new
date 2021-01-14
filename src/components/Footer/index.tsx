@@ -10,6 +10,9 @@ import LinkedinIcon from '../../images/footer/linkedinIcon.svg'
 import CodewarsIcon from '../../images/footer/codewarsIcon.svg'
 import GithubIcon from '../../images/footer/githubIcon.svg'
 
+import VisibilitySensor from '../VisibilitySensor'
+import FadeInAnimation from '../UI/FadeInAnimation'
+
 const Footer: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [
     {
@@ -32,7 +35,9 @@ const Footer: React.FC = () => {
 
   const socialComponents = SOCIALS_DATA.map(({ icon: Icon, link }) => (
     <SocialLink key={link} href={link}>
-      <Icon />
+      <IconContainer>
+        <Icon />
+      </IconContainer>
     </SocialLink>
   ))
 
@@ -48,15 +53,21 @@ const Footer: React.FC = () => {
         <ContentContainer>
           <FooterMenuContainer>
             <InfoContainer>
-              <InfoColumn>
-                <Title>Contact me</Title>
-                <Info as="a" href={`tel:${phone}`}>
-                  {phone}
-                </Info>
-                <Info as="a" href={`mailto:${email}`}>
-                  {email}
-                </Info>
-              </InfoColumn>
+              <VisibilitySensor once>
+                {({ isVisible }) => (
+                  <FadeInAnimation isVisible={isVisible} fromLeft>
+                    <InfoColumn>
+                      <Title>Contact me</Title>
+                      <Info as="a" href={`tel:${phone}`}>
+                        {phone}
+                      </Info>
+                      <Info as="a" href={`mailto:${email}`}>
+                        {email}
+                      </Info>
+                    </InfoColumn>
+                  </FadeInAnimation>
+                )}
+              </VisibilitySensor>
             </InfoContainer>
 
             <MobileSocialsContainer>
@@ -219,6 +230,13 @@ const RightsInfo = styled.p`
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
     font-size: ${({ theme }) => theme.fontSize.semiText};
+  }
+`
+
+const IconContainer = styled.div`
+  display: inline-block;
+  :hover {
+    transform: scale(1.2);
   }
 `
 

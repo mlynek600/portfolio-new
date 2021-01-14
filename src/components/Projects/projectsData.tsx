@@ -33,6 +33,13 @@ export const projectsData: ProjectsDataType = {
       link: 'https://github.com/mlynek600/starwars',
       icon: <StarWarsIcon />,
     },
+    {
+      name: 'Agroturystyka',
+      description:
+        'Star Wars characters and movies viewer. Created with React, Redux and TypeScript.',
+      link: 'https://github.com/mlynek600/starwars',
+      icon: <StarWarsIcon />,
+    },
   ],
   ownProjects: [
     {
