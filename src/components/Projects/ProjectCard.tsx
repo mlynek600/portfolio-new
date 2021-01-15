@@ -7,6 +7,7 @@ type ProjectCardProps = {
   description: string
   link: string
   icon: JSX.Element
+  isCommercialCategory: boolean
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,24 +15,48 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   link,
   icon,
-}) => (
-  <Container>
-    <Card>
-      <IconContainer>{icon}</IconContainer>
-      <Title>{name}</Title>
+  isCommercialCategory,
+}) => {
+  const githubIconElement = !isCommercialCategory && (
+    <GithubIconContainer href={link}>
+      <GithubIcon />
+    </GithubIconContainer>
+  )
 
-      <Description>{description}</Description>
+  const titleElement = !isCommercialCategory && <Title>{name}</Title>
 
-      <GithubIconContainer href={link}>
-        <GithubIcon />
-      </GithubIconContainer>
-    </Card>
-  </Container>
-)
+  const linkElement = isCommercialCategory && (
+    <LinkContainer>
+      <a href={link}>
+        <LinkText>LINK</LinkText>
+      </a>
+    </LinkContainer>
+  )
+
+  return (
+    <Container>
+      <Card>
+        <IconContainer>{icon}</IconContainer>
+        {titleElement}
+
+        <Description>{description}</Description>
+
+        {githubIconElement}
+        {linkElement}
+      </Card>
+    </Container>
+  )
+}
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  max-width: 400px;
+  opacity: 0.7;
+  transition: opacity 0.5s ease-out;
+  :hover {
+    opacity: 1;
+  }
 `
 
 const Card = styled.div<{ centered?: boolean }>`
@@ -43,15 +68,13 @@ const Card = styled.div<{ centered?: boolean }>`
   flex-direction: column;
   align-items: center;
   min-width: 250px;
-  max-width: 450px;
+  max-width: 400px;
   height: 400px;
 `
 
 const Title = styled.h1`
-  margin-bottom: 10px;
   font-size: ${({ theme }) => theme.fontSize.bigText};
-  color: ${({ theme }) => theme.colors.darkGreen};
-  padding-bottom: 20px;
+  color: ${({ theme }) => theme.colors.purple};
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     font-size: ${({ theme }) => theme.fontSize.s25};
@@ -64,6 +87,7 @@ const Title = styled.h1`
 
 const Description = styled.p`
   margin-bottom: 25px;
+  margin-top: 25px;
   color: ${({ theme }) => theme.colors.darkGreen};
   font-size: ${({ theme }) => theme.fontSize.smallText};
   text-align: center;
@@ -96,6 +120,17 @@ const IconContainer = styled.div`
     width: 80%;
     padding: 20px;
   }
+`
+
+const LinkContainer = styled.div`
+  position: absolute;
+  bottom: 50px;
+`
+
+const LinkText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.medium};
+  color: ${({ theme }) => theme.colors.purpleGrey};
+  font-size: ${({ theme }) => theme.fontSize.s20};
 `
 
 export default ProjectCard

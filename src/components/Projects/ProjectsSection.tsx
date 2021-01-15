@@ -9,8 +9,8 @@ import VisibilitySensor from '../VisibilitySensor'
 import FadeInAnimation from '../UI/FadeInAnimation'
 
 export const ProjectsSection: React.FC = () => {
-  const projectsCategories = ['Commercial', 'Own']
-  type ProjectCategoriesType = typeof projectsCategories[number]
+  type ProjectCategoriesType = 'Commercial' | 'Own'
+  const projectsCategories: ProjectCategoriesType[] = ['Commercial', 'Own']
 
   const [
     projectsCategory,
@@ -77,11 +77,16 @@ const SectionStyle = styled.div`
 const CategoriesContainer = styled.div`
   display: flex;
   padding-top: 30px;
+  width: 100%;
+  justify-content: center;
 `
 
 const CategoryButton = styled.button<{ isActive: boolean }>`
-  padding: 0px 30px;
+  margin: 0px 30px;
   text-decoration: ${props => (props.isActive ? 'underline' : 'none')};
+  text-decoration-color: ${({ theme }) => theme.colors.purple};
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
 `
 
 const CategoryButtonText = styled.h1``

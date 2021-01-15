@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Carousel from 'react-multi-carousel'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import 'react-multi-carousel/lib/styles.css'
 
 import { useWindowSize } from '../../hooks'
@@ -15,6 +15,8 @@ type PackagesCardsProps = {
 
 const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
   const { width } = useWindowSize()
+
+  const isCommercialCategory = category === 'Commercial'
 
   const deviceType =
     width < 1024 ? (width < 464 ? 'mobile' : 'tablet') : 'desktop'
@@ -37,10 +39,9 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
     },
   }
 
-  const projectsCategoryData =
-    category === 'Commercial'
-      ? projectsData.commercialProjects
-      : projectsData.ownProjects
+  const projectsCategoryData = isCommercialCategory
+    ? projectsData.commercialProjects
+    : projectsData.ownProjects
 
   const cardElements = projectsCategoryData.map(data => {
     const { name, icon, description, link } = data
@@ -52,30 +53,33 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
         key={name}
         name={name}
         description={description}
+        isCommercialCategory={isCommercialCategory}
       ></ProjectCard>
     )
   })
 
-  return (
-    <Container>
-      <Wrapper>
-        <Carousel
-          responsive={responsive}
-          swipeable={true}
-          draggable={true}
-          showDots={false}
-          ssr={true}
-          infinite={true}
-          autoPlay={false}
-          keyBoardControl={true}
-          transitionDuration={500}
-          deviceType={deviceType}
-        >
-          {cardElements}
-        </Carousel>
-      </Wrapper>
-    </Container>
+  const projectsElement = isCommercialCategory ? (
+    <CommercialProjectsCards>{cardElements}</CommercialProjectsCards>
+  ) : (
+    <OwnProjectsCards>
+      <Carousel
+        responsive={responsive}
+        swipeable={true}
+        draggable={true}
+        showDots={false}
+        ssr={true}
+        infinite={true}
+        autoPlay={false}
+        keyBoardControl={true}
+        transitionDuration={500}
+        deviceType={deviceType}
+      >
+        {cardElements}
+      </Carousel>
+    </OwnProjectsCards>
   )
+
+  return <Wrapper>{projectsElement}</Wrapper>
 }
 
 const Wrapper = styled.div`
@@ -84,17 +88,14 @@ const Wrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
     max-width: 80vw;
-    margin-top: 60px;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     max-width: 70vw;
-    margin-top: 60px;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     max-width: 60vw;
-    margin-top: 70px;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
@@ -106,10 +107,26 @@ const Wrapper = styled.div`
   }
 `
 
-const Container = styled.div`
+const changeOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+
+const CommercialProjectsCards = styled.div`
+  display: flex;
+  animation: ${changeOpacity} 0.2s ease-in;
+`
+
+const OwnProjectsCards = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  animation: ${changeOpacity} 0.2s ease-in;
 `
 
 export default PackagesCards

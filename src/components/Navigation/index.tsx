@@ -28,11 +28,12 @@ const NavigationLinksContainer = styled.div`
 `
 
 const LinkItem = styled.button`
-  font-family: ${({ theme }) => theme.fonts.semiBold};
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.purple};
   font-size: ${({ theme }) => theme.fontSize.text};
-  margin-left: 30px;
+  margin-left: 40px;
   transition: color 0.2s ease-in-out;
+  letter-spacing: 1.5px;
 
   :hover {
     color: ${({ theme }) => theme.colors.red};
