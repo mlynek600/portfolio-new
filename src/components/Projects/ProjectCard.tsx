@@ -8,6 +8,7 @@ type ProjectCardProps = {
   link: string
   icon: JSX.Element
   isCommercialCategory: boolean
+  onProjectLinkClick: (link: string) => Promise<void>
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -16,21 +17,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
   icon,
   isCommercialCategory,
+  onProjectLinkClick,
 }) => {
   const githubIconElement = !isCommercialCategory && (
-    <GithubIconContainer href={link}>
+    <GithubIconButton onClick={() => onProjectLinkClick(link)}>
       <GithubIcon />
-    </GithubIconContainer>
+    </GithubIconButton>
   )
 
   const titleElement = !isCommercialCategory && <Title>{name}</Title>
 
   const linkElement = isCommercialCategory && (
-    <LinkContainer>
-      <a href={link}>
-        <LinkText>LINK</LinkText>
-      </a>
-    </LinkContainer>
+    <LinkButton onClick={() => onProjectLinkClick(link)}>
+      <LinkText>LINK</LinkText>
+    </LinkButton>
   )
 
   return (
@@ -97,7 +97,7 @@ const Description = styled.p`
   }
 `
 
-const GithubIconContainer = styled.a`
+const GithubIconButton = styled.button`
   position: absolute;
   bottom: 35px;
   :hover {
@@ -122,7 +122,7 @@ const IconContainer = styled.div`
   }
 `
 
-const LinkContainer = styled.div`
+const LinkButton = styled.button`
   position: absolute;
   bottom: 50px;
 `

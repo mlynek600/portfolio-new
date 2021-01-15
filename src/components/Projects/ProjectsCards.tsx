@@ -11,9 +11,14 @@ import { projectsData } from './projectsData'
 
 type PackagesCardsProps = {
   category: 'Commercial' | 'Own'
+
+  onProjectLinkClick: (link: string) => Promise<void>
 }
 
-const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
+const PackagesCards: React.FC<PackagesCardsProps> = ({
+  category,
+  onProjectLinkClick,
+}) => {
   const { width } = useWindowSize()
 
   const isCommercialCategory = category === 'Commercial'
@@ -48,6 +53,7 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({ category }) => {
 
     return (
       <ProjectCard
+        onProjectLinkClick={onProjectLinkClick}
         icon={icon}
         link={link}
         key={name}

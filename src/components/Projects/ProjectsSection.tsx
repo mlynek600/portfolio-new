@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
 
 import ContentContainer from '../UI/ContentContainer'
 import SectionTitle from '../SectionTitle'
@@ -11,11 +12,14 @@ import FadeInAnimation from '../UI/FadeInAnimation'
 export const ProjectsSection: React.FC = () => {
   type ProjectCategoriesType = 'Commercial' | 'Own'
   const projectsCategories: ProjectCategoriesType[] = ['Commercial', 'Own']
+  const historyState: ProjectCategoriesType | null = window.history.state
+  const initialCategory: ProjectCategoriesType =
+    historyState || 'Commercial'
 
   const [
     projectsCategory,
     setProjectsCategory,
-  ] = useState<ProjectCategoriesType>('Commercial')
+  ] = useState<ProjectCategoriesType>(initialCategory)
 
   const categoryButtons = projectsCategories.map(category => (
     <CategoryButton
@@ -26,6 +30,9 @@ export const ProjectsSection: React.FC = () => {
       <CategoryButtonText>{category}</CategoryButtonText>
     </CategoryButton>
   ))
+
+  const onProjectLinkClick = (link: string) => navigate(link)
+  history.pushState(projectsCategory, 'projectsCategory')
 
   return (
     <Wrapper id="projects">
@@ -38,7 +45,10 @@ export const ProjectsSection: React.FC = () => {
           <VisibilitySensor once>
             {({ isVisible }) => (
               <FadeInAnimation isVisible={isVisible}>
-                <ProjectsCards category={projectsCategory} />
+                <ProjectsCards
+                  category={projectsCategory}
+                  onProjectLinkClick={onProjectLinkClick}
+                />
               </FadeInAnimation>
             )}
           </VisibilitySensor>
