@@ -7,7 +7,7 @@ import HomeIcon from '../../images/mobileMenu/homeIcon.svg'
 const MobileMenu: React.FC = () => (
   <Wrapper>
     <MobileNavigationContainer>
-      <MobileLinkItem onClick={() => scrollTo('#hero')}>
+      <MobileLinkItem onClick={() => scrollTo('#home')}>
         <HomeIconContainer>
           <HomeIcon />
         </HomeIconContainer>

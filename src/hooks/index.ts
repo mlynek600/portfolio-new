@@ -1,3 +1,3 @@
-import useWindowSize from './useWindowSize'
+export * from './useWindowSize'
 
-export { useWindowSize }
+

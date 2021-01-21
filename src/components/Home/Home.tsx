@@ -4,18 +4,19 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import Typing from 'react-typing-animation'
 import styled from 'styled-components'
 
-import CodeImage from '../../images/hero/codeImage.svg'
+import CodeImage from '../../images/home/codeImage.svg'
 
-import Navigation from '../Navigation'
-import VisibilitySensor from '../VisibilitySensor'
-import ContentContainer, {
+import Navigation from './Navigation/HomeNavigation'
+import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import {
+  ContentContainer,
   Wrapper as ContentWrapper,
-} from '../UI/ContentContainer'
-import FadeInAnimation from '../UI/FadeInAnimation'
+  FadeInAnimation,
+} from '../UI'
 
 import aboutMeData from './aboutMeData'
 
-const Hero: React.FC = () => {
+const Home: React.FC = () => {
   const [animatedCounter, setAnimatedCounter] = useState(1)
   const [animatedText, setAnimatedText] = useState(aboutMeData.words[0])
   const [textLength, setTextLength] = useState(animatedText.length)
@@ -34,12 +35,12 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <Wrapper id="hero">
+    <Wrapper id="home">
       <ContentContainer>
         <Navigation />
 
-        <HeroContainer>
-          <HeroContentContainer>
+        <HomeContainer>
+          <div>
             <Title>Hi, I'm Adam...</Title>
 
             <AboutMe>
@@ -78,8 +79,8 @@ const Hero: React.FC = () => {
                 )}
               </VisibilitySensor>
             </CodeImageContainer>
-          </HeroContentContainer>
-        </HeroContainer>
+          </div>
+        </HomeContainer>
       </ContentContainer>
     </Wrapper>
   )
@@ -105,7 +106,7 @@ const Wrapper = styled.section`
   }
 `
 
-const HeroContainer = styled.div`
+const HomeContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 40px;
@@ -131,8 +132,6 @@ const CodeImageContainer = styled.div`
     top: 200px;
   }
 `
-
-const HeroContentContainer = styled.div``
 
 const Title = styled.h1`
   max-width: 456px;
@@ -244,4 +243,4 @@ const AboutMe = styled.div`
   }
 `
 
-export default Hero
+export default Home

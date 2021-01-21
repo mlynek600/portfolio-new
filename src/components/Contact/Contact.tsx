@@ -1,19 +1,20 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import ContentContainer, {
+import {
+  FadeInAnimation,
+  ContentContainer,
   GridContainer,
   Wrapper as ContentWrapper,
-} from '../UI/ContentContainer'
+} from '../UI'
 
 import FacebookIcon from '../../images/footer/facebookIcon.svg'
 import LinkedinIcon from '../../images/footer/linkedinIcon.svg'
 import CodewarsIcon from '../../images/footer/codewarsIcon.svg'
 import GithubIcon from '../../images/footer/githubIcon.svg'
 
-import VisibilitySensor from '../VisibilitySensor'
-import FadeInAnimation from '../UI/FadeInAnimation'
+import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
 
-const Footer: React.FC = () => {
+const Contact: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [
     {
       icon: GithubIcon,
@@ -240,4 +241,4 @@ const IconContainer = styled.div`
   }
 `
 
-export default Footer
+export default Contact

@@ -1,11 +1,11 @@
 import React from 'react'
-import Seo from '../components/Seo'
+import Seo from '../components/Seo/Seo'
 import Layout from '../components/layout'
-import Hero from '../components/Hero'
+import Home from '../components/Home/Home'
 import Skills from '../components/Skills/Skills'
-import { ProjectsSection } from '../components/Projects/ProjectsSection'
-import Footer from '../components/Footer'
-import MobileMenu from '../components/MobileMenu'
+import Projects from '../components/Projects/Projects'
+import Contact from '../components/Contact/Contact'
+import MobileMenu from '../components/MobileMenu/MobileMenu'
 
 const IndexPage: React.FC = () => (
   <>
@@ -14,10 +14,10 @@ const IndexPage: React.FC = () => (
     <Layout>
       <MobileMenu />
 
-      <Hero />
+      <Home />
       <Skills />
-      <ProjectsSection />
-      <Footer />
+      <Projects />
+      <Contact />
     </Layout>
   </>
 )

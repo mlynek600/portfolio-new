@@ -8,7 +8,7 @@ type Props = {
   fromLeft?: boolean
 }
 
-const FadeInAnimation: React.FC<Props> = ({
+export const FadeInAnimation: React.FC<Props> = ({
   isVisible,
   children,
   fromRight,
@@ -38,5 +38,3 @@ const FadeInAnimation: React.FC<Props> = ({
   })
   return <animated.div style={props}>{children}</animated.div>
 }
-
-export default FadeInAnimation

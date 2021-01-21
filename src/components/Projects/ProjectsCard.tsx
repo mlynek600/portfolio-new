@@ -8,6 +8,7 @@ type ProjectCardProps = {
   link: string
   icon: JSX.Element
   isCommercialCategory: boolean
+
   onProjectLinkClick: (link: string) => Promise<void>
 }
 
@@ -17,6 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
   icon,
   isCommercialCategory,
+
   onProjectLinkClick,
 }) => {
   const githubIconElement = !isCommercialCategory && (

@@ -9,7 +9,6 @@ type Props = {
 }
 
 const Seo = ({ description, title, keywords }: Props): JSX.Element => {
-  //add siteUrl to siteMetadata
 
   const { site } = useStaticQuery(
     graphql`

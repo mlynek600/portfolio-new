@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 
-import ContentContainer from '../UI/ContentContainer'
+import { ContentContainer, FadeInAnimation } from '../UI'
 import SectionTitle from '../SectionTitle'
 
-import ProjectsCards from './ProjectsCards'
-import VisibilitySensor from '../VisibilitySensor'
-import FadeInAnimation from '../UI/FadeInAnimation'
+import ProjectsList from './ProjectsList'
+import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
 
-export const ProjectsSection: React.FC = () => {
+const Projects: React.FC = () => {
   type ProjectCategoriesType = 'Commercial' | 'Own'
   const projectsCategories: ProjectCategoriesType[] = ['Commercial', 'Own']
   const historyState: ProjectCategoriesType | null = window.history.state
@@ -45,7 +44,7 @@ export const ProjectsSection: React.FC = () => {
           <VisibilitySensor once>
             {({ isVisible }) => (
               <FadeInAnimation isVisible={isVisible}>
-                <ProjectsCards
+                <ProjectsList
                   category={projectsCategory}
                   onProjectLinkClick={onProjectLinkClick}
                 />
@@ -100,3 +99,5 @@ const CategoryButton = styled.button<{ isActive: boolean }>`
 `
 
 const CategoryButtonText = styled.h1``
+
+export default Projects

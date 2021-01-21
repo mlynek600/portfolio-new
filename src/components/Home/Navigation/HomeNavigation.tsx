@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
-import navigationData from '../../constants/navigation'
+import navigationData from '../../../constants/navigation'
 
 const Navigation: React.FC = () => (
   <Wrapper>

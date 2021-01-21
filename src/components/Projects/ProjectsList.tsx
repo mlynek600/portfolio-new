@@ -6,8 +6,8 @@ import 'react-multi-carousel/lib/styles.css'
 
 import { useWindowSize } from '../../hooks'
 
-import ProjectCard from './ProjectCard'
-import { projectsData } from './projectsData'
+import ProjectCard from './ProjectsCard'
+import projectsData from './projectsData'
 
 type PackagesCardsProps = {
   category: 'Commercial' | 'Own'
@@ -67,23 +67,23 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({
   const projectsElement = isCommercialCategory ? (
     <CommercialProjectsCards>{cardElements}</CommercialProjectsCards>
   ) : (
-    <OwnProjectsCards>
-      <Carousel
-        responsive={responsive}
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        ssr={true}
-        infinite={true}
-        autoPlay={false}
-        keyBoardControl={true}
-        transitionDuration={500}
-        deviceType={deviceType}
-      >
-        {cardElements}
-      </Carousel>
-    </OwnProjectsCards>
-  )
+      <OwnProjectsCards>
+        <Carousel
+          responsive={responsive}
+          swipeable={true}
+          draggable={true}
+          showDots={false}
+          ssr={true}
+          infinite={true}
+          autoPlay={false}
+          keyBoardControl={true}
+          transitionDuration={500}
+          deviceType={deviceType}
+        >
+          {cardElements}
+        </Carousel>
+      </OwnProjectsCards>
+    )
 
   return <Wrapper>{projectsElement}</Wrapper>
 }

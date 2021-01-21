@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import ContentContainer from '../UI/ContentContainer'
+import { ContentContainer } from '../UI'
 import SectionTitle from '../SectionTitle'
 
 import SkillsIcons from './SkillsIcons'

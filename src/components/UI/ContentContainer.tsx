@@ -5,7 +5,7 @@ type Props = {
   children: ReactChildren | ReactElement | JSX.Element[]
 }
 
-const ContentContainer: React.FC<Props> = ({ children }) => (
+export const ContentContainer: React.FC<Props> = ({ children }) => (
   <Wrapper>
     <GridContainer>{children}</GridContainer>
   </Wrapper>
@@ -53,5 +53,3 @@ export const Wrapper = styled.div`
     padding: 0 40px;
   }
 `
-
-export default ContentContainer

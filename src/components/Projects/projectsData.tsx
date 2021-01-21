@@ -28,7 +28,7 @@ const CompanyLogo = styled.img`
   padding-top: 20px;
 `
 
-export const projectsData: ProjectsDataType = {
+const projectsData: ProjectsDataType = {
   commercialProjects: [
     {
       name: 'Groupfire',
@@ -96,3 +96,5 @@ export const projectsData: ProjectsDataType = {
     },
   ],
 }
+
+export default projectsData
