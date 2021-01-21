@@ -16,7 +16,7 @@ const FadeInAnimation: React.FC<Props> = ({
 }) => {
   const fromRightTransform = isVisible
     ? 'translateX(0px)'
-    : 'translateX(250px)'
+    : 'translateX(50px)'
 
   const fromLeftTransform = isVisible
     ? 'translateX(0px)'

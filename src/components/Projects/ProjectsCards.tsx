@@ -19,9 +19,9 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({
   category,
   onProjectLinkClick,
 }) => {
-  const { width } = useWindowSize()
-
   const isCommercialCategory = category === 'Commercial'
+
+  const { width } = useWindowSize()
 
   const deviceType =
     width < 1024 ? (width < 464 ? 'mobile' : 'tablet') : 'desktop'
@@ -125,6 +125,7 @@ const changeOpacity = keyframes`
 
 const CommercialProjectsCards = styled.div`
   display: flex;
+  flex-wrap: wrap;
   animation: ${changeOpacity} 0.2s ease-in;
 `
 

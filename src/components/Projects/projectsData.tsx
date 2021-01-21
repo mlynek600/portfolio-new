@@ -6,6 +6,8 @@ import NewsIcon from '../../images/projects/myProjects/newsIcon.svg'
 import TodoIcon from '../../images/projects/myProjects/todoIcon.svg'
 import MoviesIcon from '../../images/projects/myProjects/moviesIcon.svg'
 import QuizIcon from '../../images/projects/myProjects/quizIcon.svg'
+import HotelsIcon from '../../images/projects/myProjects/hotelsIcon.svg'
+import PortfolioIcon from '../../images/projects/myProjects/portfolioIcon.svg'
 import sixBridgesLogo from '../../images/projects/commercial/sixBridgesLogo.png'
 import groupfireLogo from '../../images/projects/commercial/groupfireLogo.png'
 
@@ -45,11 +47,25 @@ export const projectsData: ProjectsDataType = {
   ],
   ownProjects: [
     {
+      name: 'Hotels',
+      description:
+        'App for booking hotels. It fetches hotels data from mockApi. Created with React, Context API, TypeScript, Gatsby.js and axios.',
+      link: 'https://github.com/mlynek600/hotels',
+      icon: <HotelsIcon />,
+    },
+    {
       name: 'Star Wars',
       description:
         'Star Wars characters and movies viewer. Created with React, Redux and TypeScript.',
       link: 'https://github.com/mlynek600/starwars',
       icon: <StarWarsIcon />,
+    },
+    {
+      name: 'Portfolio',
+      description:
+        'My portfolio website you are looking at right now! Created with React, TypeScript, Gatsby.js, styled-components and some animation libraries.',
+      link: 'https://github.com/mlynek600/portfolio-new',
+      icon: <PortfolioIcon />,
     },
     {
       name: 'News App',

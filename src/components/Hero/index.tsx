@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import Typing from 'react-typing-animation'
+import styled from 'styled-components'
+
 import CodeImage from '../../images/hero/codeImage.svg'
+
+import Navigation from '../Navigation'
 import VisibilitySensor from '../VisibilitySensor'
-import FadeInAnimation from '../UI/FadeInAnimation'
-
-import aboutMeData from './aboutMeData'
-
 import ContentContainer, {
   Wrapper as ContentWrapper,
 } from '../UI/ContentContainer'
-import Navigation from '../Navigation'
+import FadeInAnimation from '../UI/FadeInAnimation'
+
+import aboutMeData from './aboutMeData'
 
 const Hero: React.FC = () => {
   const [animatedCounter, setAnimatedCounter] = useState(1)
@@ -20,8 +22,10 @@ const Hero: React.FC = () => {
 
   const onFinishedTyping = () => {
     const newText = aboutMeData.words[animatedCounter]
+
     setAnimatedText(newText)
     setTextLength(newText.length)
+
     if (animatedCounter === aboutMeData.words.length - 1) {
       setAnimatedCounter(0)
     } else {
@@ -48,6 +52,7 @@ const Hero: React.FC = () => {
                   startDelay={100}
                 >
                   <AnimatedText>{animatedText}</AnimatedText>
+
                   <Typing.Backspace
                     count={textLength}
                     speed={50}
@@ -82,10 +87,8 @@ const Hero: React.FC = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  position: relative;
   height: 100vh;
-
-  background: rgb(243, 243, 243);
+  position: relative;
   background: linear-gradient(
     0deg,
     rgba(243, 243, 243, 1) 0%,
@@ -117,30 +120,33 @@ const HeroContainer = styled.div`
 `
 
 const CodeImageContainer = styled.div`
-  height: 250px;
-  width: 250px;
+  width: 130px;
   position: absolute;
-  right: 250px;
-  top: 200px;
+  right: 50px;
+  top: 250px;
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
+    width: 250px;
+    right: 250px;
+    top: 200px;
+  }
 `
 
 const HeroContentContainer = styled.div``
 
 const Title = styled.h1`
   max-width: 456px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.semiBold};
   font-size: ${({ theme }) => theme.fontSize.smallTitle};
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
-    padding-bottom: 35px;
     font-size: ${({ theme }) => theme.fontSize.title};
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
     white-space: nowrap;
-    padding-bottom: 40px;
     font-size: ${({ theme }) => theme.fontSize.bigTitle};
   }
 `
@@ -181,7 +187,7 @@ const AnimationWrapper = styled.div`
 `
 const Text = styled.h1`
   font-family: ${({ theme }) => theme.fonts.light};
-  font-size: ${({ theme }) => theme.fontSize.s22};
+  font-size: ${({ theme }) => theme.fontSize.s20};
   text-align: center;
   color: ${({ theme }) => theme.colors.purpleGrey};
   padding-top: 0px;
@@ -206,7 +212,7 @@ const Text = styled.h1`
 
 const AnimatedText = styled.h1`
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: ${({ theme }) => theme.fontSize.s22};
+  font-size: ${({ theme }) => theme.fontSize.s20};
   text-align: center;
   color: ${({ theme }) => theme.colors.purple};
 
@@ -228,10 +234,14 @@ const AnimatedText = styled.h1`
 `
 
 const AboutMe = styled.div`
-  margin-left: 100px;
   display: flex;
-  width: 540px;
+  width: 330px;
   justify-content: space-between;
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
+    width: 540px;
+    margin-left: 100px;
+  }
 `
 
 export default Hero
