@@ -6,16 +6,16 @@ import 'react-multi-carousel/lib/styles.css'
 
 import { useWindowSize } from '../../hooks'
 
-import ProjectCard from './ProjectsCard'
+import ProjectsCard from './ProjectsCard'
 import projectsData from './projectsData'
 
-type PackagesCardsProps = {
+type ProjectsListProps = {
   category: 'Commercial' | 'Own'
 
   onProjectLinkClick: (link: string) => Promise<void>
 }
 
-const PackagesCards: React.FC<PackagesCardsProps> = ({
+const ProjectsList: React.FC<ProjectsListProps> = ({
   category,
   onProjectLinkClick,
 }) => {
@@ -52,7 +52,7 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({
     const { name, icon, description, link } = data
 
     return (
-      <ProjectCard
+      <ProjectsCard
         onProjectLinkClick={onProjectLinkClick}
         icon={icon}
         link={link}
@@ -60,30 +60,30 @@ const PackagesCards: React.FC<PackagesCardsProps> = ({
         name={name}
         description={description}
         isCommercialCategory={isCommercialCategory}
-      ></ProjectCard>
+      ></ProjectsCard>
     )
   })
 
   const projectsElement = isCommercialCategory ? (
     <CommercialProjectsCards>{cardElements}</CommercialProjectsCards>
   ) : (
-      <OwnProjectsCards>
-        <Carousel
-          responsive={responsive}
-          swipeable={true}
-          draggable={true}
-          showDots={false}
-          ssr={true}
-          infinite={true}
-          autoPlay={false}
-          keyBoardControl={true}
-          transitionDuration={500}
-          deviceType={deviceType}
-        >
-          {cardElements}
-        </Carousel>
-      </OwnProjectsCards>
-    )
+    <OwnProjectsCards>
+      <Carousel
+        responsive={responsive}
+        swipeable={true}
+        draggable={true}
+        showDots={false}
+        ssr={true}
+        infinite={true}
+        autoPlay={false}
+        keyBoardControl={true}
+        transitionDuration={500}
+        deviceType={deviceType}
+      >
+        {cardElements}
+      </Carousel>
+    </OwnProjectsCards>
+  )
 
   return <Wrapper>{projectsElement}</Wrapper>
 }
@@ -136,4 +136,4 @@ const OwnProjectsCards = styled.div`
   animation: ${changeOpacity} 0.2s ease-in;
 `
 
-export default PackagesCards
+export default ProjectsList

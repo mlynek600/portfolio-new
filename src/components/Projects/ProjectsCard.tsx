@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import GithubIcon from '../../images/projects/githubIconGray.svg'
 
-type ProjectCardProps = {
+type ProjectsCardProps = {
   name: string
   description: string
   link: string
@@ -12,7 +12,7 @@ type ProjectCardProps = {
   onProjectLinkClick: (link: string) => Promise<void>
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectsCard: React.FC<ProjectsCardProps> = ({
   name,
   description,
   link,
@@ -135,4 +135,4 @@ const LinkText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.s20};
 `
 
-export default ProjectCard
+export default ProjectsCard

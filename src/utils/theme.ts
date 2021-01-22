@@ -32,12 +32,10 @@ export default {
       xs: '380px',
       s: '480px',
       m: '600px',
-      maxWidth: '767px',
     },
     tablet: {
       s: '768px',
       m: '900px',
-      maxWidth: '1279px',
     },
     desktop: {
       s: '1024px',

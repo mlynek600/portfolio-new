@@ -91,7 +91,7 @@ const CategoriesContainer = styled.div`
 `
 
 const CategoryButton = styled.button<{ isActive: boolean }>`
-  margin: 0px 30px;
+  margin: 0px 15px;
   text-decoration: ${props => (props.isActive ? 'underline' : 'none')};
   text-decoration-color: ${({ theme }) => theme.colors.purple};
   text-decoration-thickness: 3px;

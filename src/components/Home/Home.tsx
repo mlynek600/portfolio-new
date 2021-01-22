@@ -111,6 +111,10 @@ const HomeContainer = styled.div`
   justify-content: space-between;
   padding-top: 40px;
 
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    padding-left: 40px;
+  }
+
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     padding-top: 70px;
   }
@@ -126,10 +130,37 @@ const CodeImageContainer = styled.div`
   right: 50px;
   top: 250px;
 
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    top: 250px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
+    width: 160px;
+    top: 250px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
+    top: 330px;
+    right: 120px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
+    width: 190px;
+    top: 400px;
+  }
+
   @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
     width: 250px;
-    right: 250px;
+    right: 160px;
     top: 200px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.l}) {
+    right: 250px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
+    right: 300px;
   }
 `
 
@@ -139,6 +170,10 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.semiBold};
   font-size: ${({ theme }) => theme.fontSize.smallTitle};
+
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    font-size: ${({ theme }) => theme.fontSize.semiTitle};
+  }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     font-size: ${({ theme }) => theme.fontSize.title};
@@ -192,19 +227,15 @@ const Text = styled.h1`
   padding-top: 0px;
   margin-top: 0px;
 
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    font-size: ${({ theme }) => theme.fontSize.s22};
+  }
+
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     font-size: ${({ theme }) => theme.fontSize.s25};
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
-    font-size: ${({ theme }) => theme.fontSize.smallTitle};
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
-    font-size: ${({ theme }) => theme.fontSize.semiTitle};
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
     font-size: ${({ theme }) => theme.fontSize.smallTitle};
   }
 `
@@ -215,19 +246,15 @@ const AnimatedText = styled.h1`
   text-align: center;
   color: ${({ theme }) => theme.colors.purple};
 
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    font-size: ${({ theme }) => theme.fontSize.s22};
+  }
+
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     font-size: ${({ theme }) => theme.fontSize.s25};
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
-    font-size: ${({ theme }) => theme.fontSize.smallTitle};
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
-    font-size: ${({ theme }) => theme.fontSize.semiTitle};
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
     font-size: ${({ theme }) => theme.fontSize.smallTitle};
   }
 `
@@ -237,8 +264,21 @@ const AboutMe = styled.div`
   width: 330px;
   justify-content: space-between;
 
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    width: 370px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
+    margin-left: 40px;
+    width: 420px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
+    margin-left: 80px;
     width: 540px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
     margin-left: 100px;
   }
 `
