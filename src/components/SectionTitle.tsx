@@ -11,17 +11,14 @@ const SectionTitle: React.FC<Props> = ({ text }: Props) => (
 
 const Title = styled.h3`
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 10px;
   padding-left: 40px;
   font-size: ${({ theme }) => theme.fontSize.smallTitle};
-  margin-bottom: 10px;
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     padding-left: 50px;
     font-size: ${({ theme }) => theme.fontSize.semiTitle};
-
-    :before {
-      width: 36px;
-    }
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {

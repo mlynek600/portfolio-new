@@ -63,37 +63,40 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 30px;
   margin-top: 40px;
-  height: 480px;
+  height: 400px;
+
+  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+    height: 360px;
+  }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
+    height: 480px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
     padding-top: 50px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
+    height: 580px;
   }
 
   svg {
     width: 60px;
     height: 48px;
-    padding: 15px 3px;
-
-    @media (min-width: 360px) and (max-width: 430px) {
-      padding: 15px 10px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
-      padding: 15px 7px;
-    }
+    padding: 15px 10px;
 
     @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
       width: 80x;
       height: 58px;
-      padding: 15px 10px;
+      padding: 15px 25px;
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
       width: 90px;
       height: 64px;
-      padding: 25px 10px;
+      padding: 25px 15px;
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
@@ -103,7 +106,7 @@ const Wrapper = styled.div`
     @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
       width: 100px;
       height: 84px;
-      padding: 25px 15px;
+      padding: 25px 25px;
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
@@ -111,6 +114,10 @@ const Wrapper = styled.div`
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.desktop.l}) {
+      padding: 25px 30px;
+    }
+
+    @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
       padding: 25px 33px;
     }
   }
