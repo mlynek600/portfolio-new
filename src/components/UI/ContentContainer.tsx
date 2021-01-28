@@ -1,11 +1,13 @@
 import React, { ReactChildren, ReactElement } from 'react'
 import styled from 'styled-components'
 
-type Props = {
+type ContentContainerProps = {
   children: ReactChildren | ReactElement | JSX.Element[]
 }
 
-export const ContentContainer: React.FC<Props> = ({ children }) => (
+export const ContentContainer: React.FC<ContentContainerProps> = ({
+  children,
+}) => (
   <Wrapper>
     <GridContainer>{children}</GridContainer>
   </Wrapper>

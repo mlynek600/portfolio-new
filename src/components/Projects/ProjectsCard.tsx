@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import GithubIcon from '../../images/projects/githubIconGray.svg'
+import { useWindowSize } from '../../hooks'
 
 type ProjectsCardProps = {
   name: string
@@ -21,6 +22,10 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
 
   onProjectLinkClick,
 }) => {
+  const { width } = useWindowSize()
+
+  const isMobileNav = width < 900 ? true : false
+
   const githubIconElement = !isCommercialCategory && (
     <GithubIconButton onClick={() => onProjectLinkClick(link)}>
       <GithubIcon />
@@ -36,7 +41,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
   )
 
   return (
-    <Container>
+    <Container isMobileNav={isMobileNav}>
       <Card>
         <IconContainer>{icon}</IconContainer>
         {titleElement}
@@ -50,12 +55,12 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
   )
 }
 
-const Container = styled.div`
+const Container = styled.div<{ isMobileNav: boolean }>`
   display: flex;
   justify-content: center;
-  max-width: 400px;
-  opacity: 0.7;
+  opacity: ${props => (props.isMobileNav ? 1 : 0.7)};
   transition: opacity 0.5s ease-out;
+
   :hover {
     opacity: 1;
   }
@@ -70,8 +75,12 @@ const Card = styled.div<{ centered?: boolean }>`
   flex-direction: column;
   align-items: center;
   min-width: 250px;
-  max-width: 400px;
+  max-width: 300px;
   height: 400px;
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
+    max-width: 400px;
+  }
 `
 
 const Title = styled.h1`
@@ -93,6 +102,7 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.darkGreen};
   font-size: ${({ theme }) => theme.fontSize.smallText};
   text-align: center;
+
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     font-size: ${({ theme }) => theme.fontSize.text};
     margin-bottom: 30px;
@@ -102,6 +112,7 @@ const Description = styled.p`
 const GithubIconButton = styled.button`
   position: absolute;
   bottom: 35px;
+
   :hover {
     transform: scale(1.2);
   }

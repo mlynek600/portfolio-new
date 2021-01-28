@@ -8,6 +8,8 @@ import MoviesIcon from '../../images/projects/myProjects/moviesIcon.svg'
 import QuizIcon from '../../images/projects/myProjects/quizIcon.svg'
 import HotelsIcon from '../../images/projects/myProjects/hotelsIcon.svg'
 import PortfolioIcon from '../../images/projects/myProjects/portfolioIcon.svg'
+import SpaceGameIcon from '../../images/projects/myProjects/spaceGameIcon.svg'
+
 import sixBridgesLogo from '../../images/projects/commercial/sixBridgesLogo.png'
 import groupfireLogo from '../../images/projects/commercial/groupfireLogo.png'
 
@@ -52,6 +54,13 @@ const projectsData: ProjectsDataType = {
         'App for booking hotels. It fetches hotels data from mockApi. Created with React, Context API, TypeScript, Gatsby.js and axios.',
       link: 'https://github.com/mlynek600/hotels',
       icon: <HotelsIcon />,
+    },
+    {
+      name: 'Space game',
+      description:
+        'Simple game created with React and Material UI. You can draw your card with Star Wars character or starship and play against the computer. App tested with Jest.',
+      link: 'https://github.com/mlynek600/space-game',
+      icon: <SpaceGameIcon />,
     },
     {
       name: 'Star Wars',

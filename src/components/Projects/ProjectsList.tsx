@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Carousel from 'react-multi-carousel'
-import styled, { keyframes } from 'styled-components'
-import 'react-multi-carousel/lib/styles.css'
+import styled from 'styled-components'
 
 import { useWindowSize } from '../../hooks'
+
+import { Carousel } from '../UI'
 
 import ProjectsCard from './ProjectsCard'
 import projectsData from './projectsData'
@@ -17,6 +17,7 @@ type ProjectsListProps = {
 
 const ProjectsList: React.FC<ProjectsListProps> = ({
   category,
+
   onProjectLinkClick,
 }) => {
   const isCommercialCategory = category === 'Commercial'
@@ -24,25 +25,7 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
   const { width } = useWindowSize()
 
   const deviceType =
-    width < 1024 ? (width < 464 ? 'mobile' : 'tablet') : 'desktop'
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1023 },
-      items: 3,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1023, min: 464 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  }
+    width < 1024 ? (width < 768 ? 'mobile' : 'tablet') : 'desktop'
 
   const projectsCategoryData = isCommercialCategory
     ? projectsData.commercialProjects
@@ -64,45 +47,29 @@ const ProjectsList: React.FC<ProjectsListProps> = ({
     )
   })
 
-  const projectsElement = isCommercialCategory ? (
-    <CommercialProjectsCards>{cardElements}</CommercialProjectsCards>
-  ) : (
-    <OwnProjectsCards>
-      <Carousel
-        responsive={responsive}
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        ssr={true}
-        infinite={true}
-        autoPlay={false}
-        keyBoardControl={true}
-        transitionDuration={500}
-        deviceType={deviceType}
-      >
-        {cardElements}
-      </Carousel>
-    </OwnProjectsCards>
-  )
+  const commercialProjects =
+    deviceType !== 'desktop' ? (
+      <Carousel>{cardElements}</Carousel>
+    ) : (
+      cardElements
+    )
 
-  return <Wrapper>{projectsElement}</Wrapper>
+  const ownProjects = <Carousel>{cardElements}</Carousel>
+
+  const projectsElement = isCommercialCategory
+    ? commercialProjects
+    : ownProjects
+
+  return (
+    <Wrapper>
+      <ProjectsCardsContainer>{projectsElement}</ProjectsCardsContainer>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
   margin-top: 30px;
   max-width: 90vw;
-
-  @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
-    max-width: 80vw;
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
-    max-width: 70vw;
-  }
-
-  @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
-    max-width: 60vw;
-  }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
     max-width: 80vw;
@@ -113,27 +80,21 @@ const Wrapper = styled.div`
   }
 `
 
-const changeOpacity = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`
-
-const CommercialProjectsCards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  animation: ${changeOpacity} 0.2s ease-in;
-`
-
-const OwnProjectsCards = styled.div`
+const ProjectsCardsContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  animation: ${changeOpacity} 0.2s ease-in;
+  animation: changeOpacity 0.2s ease-in;
+
+  @keyframes changeOpacity {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `
 
 export default ProjectsList

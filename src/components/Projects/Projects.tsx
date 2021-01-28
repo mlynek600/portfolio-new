@@ -58,12 +58,7 @@ const Projects: React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  padding-top: 60px;
   padding-bottom: 60px;
-
-  @media (max-width: ${({ theme }) => theme.rwd.mobile.maxWidth}) {
-    margin-top: 10px;
-  }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     padding-top: 70px;
@@ -78,14 +73,11 @@ const SectionStyle = styled.div`
   justify-content: center;
   flex-flow: wrap;
   display: flex;
-  @media (max-width: ${({ theme }) => theme.rwd.mobile.maxWidth}) {
-    padding-top: 30px;
-  }
 `
 
 const CategoriesContainer = styled.div`
   display: flex;
-  padding-top: 30px;
+  padding-top: 20px;
   width: 100%;
   justify-content: center;
 `
@@ -98,6 +90,8 @@ const CategoryButton = styled.button<{ isActive: boolean }>`
   text-underline-offset: 3px;
 `
 
-const CategoryButtonText = styled.h1``
+const CategoryButtonText = styled.h1`
+  font-size: ${({ theme }) => theme.fontSize.bigText};
+`
 
 export default Projects

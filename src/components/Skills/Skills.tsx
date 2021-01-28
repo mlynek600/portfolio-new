@@ -19,7 +19,7 @@ const Skills: React.FC = () => {
 
 const Wrapper = styled.div`
   height: 100vh;
-  padding-top: 10px;
+
   background-color: ${({ theme }) => theme.colors.lightGray};
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {

@@ -11,7 +11,7 @@ const SectionTitle: React.FC<Props> = ({ text }: Props) => (
 
 const Title = styled.h3`
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 10px;
   padding-left: 40px;
   font-size: ${({ theme }) => theme.fontSize.smallTitle};
