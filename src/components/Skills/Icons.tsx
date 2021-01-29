@@ -19,7 +19,7 @@ import JestIcon from '../../images/skills/jestIcon.svg'
 import JiraIcon from '../../images/skills/jiraIcon.svg'
 import VSCodeIcon from '../../images/skills/vscodeIcon.svg'
 
-import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import VisibilitySensor from '../VisibilitySensor'
 
 const SkillsIcons: React.FC = () => {
   const icons = [

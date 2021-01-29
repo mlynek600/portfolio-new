@@ -2,17 +2,17 @@ import React from 'react'
 
 import styled, { css } from 'styled-components'
 
-import FacebookIcon from '../../images/footer/facebookIcon.svg'
-import LinkedinIcon from '../../images/footer/linkedinIcon.svg'
-import CodewarsIcon from '../../images/footer/codewarsIcon.svg'
-import GithubIcon from '../../images/footer/githubIcon.svg'
+import FacebookIcon from '../images/footer/facebookIcon.svg'
+import LinkedinIcon from '../images/footer/linkedinIcon.svg'
+import CodewarsIcon from '../images/footer/codewarsIcon.svg'
+import GithubIcon from '../images/footer/githubIcon.svg'
 
-import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import VisibilitySensor from './VisibilitySensor'
 import {
   FadeInAnimation,
   ContentContainer,
   Wrapper as ContentWrapper,
-} from '../UI'
+} from './UI'
 
 const Contact: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [

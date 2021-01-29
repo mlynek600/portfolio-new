@@ -5,7 +5,7 @@ import { ContentContainer, FadeInAnimation } from '../UI'
 import SectionTitle from '../SectionTitle'
 
 import ProjectsList from './List'
-import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import VisibilitySensor from '../VisibilitySensor'
 
 const Projects: React.FC = () => (
   <Wrapper id="projects">

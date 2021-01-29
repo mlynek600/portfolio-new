@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Carousel } from '../UI'
 
 import ProjectsCard from './Card'
-import projectsData from './projectsData'
+import projectsData from './data'
 
 const ProjectsList: React.FC = () => {
   const cardElements = projectsData.map(data => {

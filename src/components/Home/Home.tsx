@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import CodeImage from '../../images/home/codeImage.svg'
 
-import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import VisibilitySensor from '../VisibilitySensor'
 
 import {
   ContentContainer,
@@ -14,7 +14,7 @@ import {
   FadeInAnimation,
 } from '../UI'
 
-import aboutMeData from './aboutMeData'
+import aboutMeData from './data'
 import HomeNavigation from './Navigation'
 
 const Home: React.FC = () => {
