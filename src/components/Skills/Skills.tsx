@@ -1,16 +1,18 @@
 import React from 'react'
+
 import styled from 'styled-components'
 
-import { ContentContainer } from '../UI'
 import SectionTitle from '../SectionTitle'
+import { ContentContainer } from '../UI'
 
-import SkillsIcons from './SkillsIcons'
+import SkillsIcons from './Icons'
 
 const Skills: React.FC = () => {
   return (
     <Wrapper id="skills">
       <ContentContainer>
         <SectionTitle text="Skills" />
+
         <SkillsIcons />
       </ContentContainer>
     </Wrapper>

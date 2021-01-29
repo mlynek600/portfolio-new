@@ -1,9 +1,11 @@
 import React from 'react'
+
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
-import navigationData from '../../../constants/navigation'
 
-const Navigation: React.FC = () => (
+import navigationData from '../../constants/navigation'
+
+const HomeNavigation: React.FC = () => (
   <Wrapper>
     <NavigationLinksContainer>
       {navigationData.map(({ text, scrollToId }) => (
@@ -22,6 +24,7 @@ const Wrapper = styled.nav`
 
 const NavigationLinksContainer = styled.div`
   display: none;
+
   @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
     display: block;
   }
@@ -40,4 +43,4 @@ const LinkItem = styled.button`
   }
 `
 
-export default Navigation
+export default HomeNavigation

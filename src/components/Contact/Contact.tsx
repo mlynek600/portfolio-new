@@ -1,10 +1,6 @@
 import React from 'react'
+
 import styled, { css } from 'styled-components'
-import {
-  FadeInAnimation,
-  ContentContainer,
-  Wrapper as ContentWrapper,
-} from '../UI'
 
 import FacebookIcon from '../../images/footer/facebookIcon.svg'
 import LinkedinIcon from '../../images/footer/linkedinIcon.svg'
@@ -12,6 +8,11 @@ import CodewarsIcon from '../../images/footer/codewarsIcon.svg'
 import GithubIcon from '../../images/footer/githubIcon.svg'
 
 import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+import {
+  FadeInAnimation,
+  ContentContainer,
+  Wrapper as ContentWrapper,
+} from '../UI'
 
 const Contact: React.FC = () => {
   const SOCIALS_DATA: { icon: string; link: string }[] = [
@@ -58,9 +59,11 @@ const Contact: React.FC = () => {
                   <FadeInAnimation isVisible={isVisible} fromLeft>
                     <InfoColumn>
                       <Title>Contact me</Title>
+
                       <Info as="a" href={`tel:${phone}`}>
                         {phone}
                       </Info>
+
                       <Info as="a" href={`mailto:${email}`}>
                         {email}
                       </Info>
@@ -198,6 +201,7 @@ const FooterBottom = styled.div`
 
 const SocialsContainer = styled.div`
   display: none;
+
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     display: block;
   }
@@ -206,6 +210,7 @@ const SocialsContainer = styled.div`
 const MobileSocialsContainer = styled.div`
   display: block;
   padding-top: 40px;
+
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     display: none;
   }
@@ -229,6 +234,7 @@ const RightsInfo = styled.p`
 
 const IconContainer = styled.div`
   display: inline-block;
+
   :hover {
     transform: scale(1.2);
   }

@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 import CodeImage from '../../images/home/codeImage.svg'
 
-import Navigation from './Navigation/HomeNavigation'
 import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
+
 import {
   ContentContainer,
   Wrapper as ContentWrapper,
@@ -15,6 +15,7 @@ import {
 } from '../UI'
 
 import aboutMeData from './aboutMeData'
+import HomeNavigation from './Navigation'
 
 const Home: React.FC = () => {
   const [animatedCounter, setAnimatedCounter] = useState(1)
@@ -37,7 +38,7 @@ const Home: React.FC = () => {
   return (
     <Wrapper id="home">
       <ContentContainer>
-        <Navigation />
+        <HomeNavigation />
 
         <HomeContainer>
           <div>

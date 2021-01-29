@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { Carousel } from '../UI'
 
-import ProjectsCard from './ProjectsCard'
+import ProjectsCard from './Card'
 import projectsData from './projectsData'
 
 const ProjectsList: React.FC = () => {

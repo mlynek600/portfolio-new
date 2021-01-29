@@ -1,10 +1,11 @@
-import React from "react";
-import Layout from "../components/layout";
+import React from 'react'
 
-const NotFoundPage = () => (
+import Layout from '../components/layout'
+
+const NotFoundPage: React.FC = () => (
   <Layout>
     <h1>404: Not Found</h1>
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

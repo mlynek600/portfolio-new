@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import ProjectsIcon from '../images/mobileMenu/projectsIcon.svg'
 import ContactIcon from '../images/mobileMenu/contactIcon.svg'
 import SkillsIcon from '../images/mobileMenu/skillsIcon.svg'

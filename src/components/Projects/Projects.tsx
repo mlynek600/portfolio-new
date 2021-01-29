@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ContentContainer, FadeInAnimation } from '../UI'
 import SectionTitle from '../SectionTitle'
 
-import ProjectsList from './ProjectsList'
+import ProjectsList from './List'
 import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
 
 const Projects: React.FC = () => (

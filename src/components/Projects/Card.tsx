@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
+
 import GithubIcon from '../../images/projects/githubIconGray.svg'
 import { useWindowSize } from '../../hooks'
 
@@ -47,7 +48,9 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
     <Container isMobileNav={isMobileNav}>
       <Card>
         <Type isCommercial={isCommercialProject}>{type}</Type>
+
         <IconContainer>{icon}</IconContainer>
+
         {titleElement}
 
         <Description isCommercial={isCommercialProject}>
@@ -55,6 +58,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
         </Description>
 
         {githubIconElement}
+
         {linkElement}
       </Card>
     </Container>
@@ -151,6 +155,7 @@ const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
+
   svg {
     width: 80%;
     padding: 20px;

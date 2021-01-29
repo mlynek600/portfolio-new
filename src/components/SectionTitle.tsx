@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type Props = {
+type SectionTitleProps = {
   text: string
 }
 
-const SectionTitle: React.FC<Props> = ({ text }: Props) => (
+const SectionTitle: React.FC<SectionTitleProps> = ({ text }) => (
   <Title>{text}</Title>
 )
 

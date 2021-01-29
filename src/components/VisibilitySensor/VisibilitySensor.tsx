@@ -1,16 +1,21 @@
 import React, { ReactElement, useState } from 'react'
+
 import VSensor from 'react-visibility-sensor'
 
 type AnimationFunction = (args: {
   isVisible: boolean
 }) => ReactElement[] | ReactElement
 
-type Props = {
-  children: AnimationFunction
+type VisibilitySensorProps = {
   once?: boolean
+
+  children: AnimationFunction
 }
 
-const VisibilitySensor: React.FC<Props> = ({ once, children }) => {
+const VisibilitySensor: React.FC<VisibilitySensorProps> = ({
+  once,
+  children,
+}) => {
   const [isActive, setIsActive] = useState(true)
 
   return (
@@ -18,7 +23,7 @@ const VisibilitySensor: React.FC<Props> = ({ once, children }) => {
       active={isActive}
       partialVisibility
       minTopValue={100}
-      onChange={(isVisible) => {
+      onChange={isVisible => {
         once && isVisible && setIsActive(false)
       }}
     >

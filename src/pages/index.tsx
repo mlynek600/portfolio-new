@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Seo from '../components/Seo/Seo'
 import Layout from '../components/layout'
 import Home from '../components/Home/Home'

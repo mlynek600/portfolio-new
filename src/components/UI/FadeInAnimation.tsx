@@ -1,14 +1,15 @@
 import React, { ReactElement } from 'react'
+
 import { animated, useSpring } from 'react-spring'
 
-type Props = {
+type FadeInAnimationProps = {
   isVisible: boolean
   children: ReactElement
   fromRight?: boolean
   fromLeft?: boolean
 }
 
-export const FadeInAnimation: React.FC<Props> = ({
+export const FadeInAnimation: React.FC<FadeInAnimationProps> = ({
   isVisible,
   children,
   fromRight,
@@ -36,5 +37,6 @@ export const FadeInAnimation: React.FC<Props> = ({
     transform: getTransformValue(),
     transitionDuration: fromRight ? '3s' : '0.1s',
   })
+
   return <animated.div style={props}>{children}</animated.div>
 }
