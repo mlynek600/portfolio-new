@@ -31,11 +31,11 @@ const SkillsIcons: React.FC = () => {
     <GraphQLIcon key="GraphQLIcon" />,
     <SassIcon key="SassIcon" />,
     <BootstrapIcon key="BootstrapIcon" />,
+    <JiraIcon key="JiraIcon" />,
     <GitIcon key="GitIcon" />,
     <ProtractorIcon key="ProtractorIcon" />,
     <JestIcon key="JestIcon" />,
     <FigmaIcon key="FigmaIcon" />,
-    <JiraIcon key="JiraIcon" />,
     <VSCodeIcon key="VSCodeIcon" />,
   ]
 
@@ -53,7 +53,9 @@ const SkillsIcons: React.FC = () => {
               enter={{ transform: 'translate3d(0,0px,0)', opacity: 1 }}
               trail={100}
             >
-              {item => props => <div style={props}>{item}</div>}
+              {item => props => (
+                <IconContainer style={props}>{item}</IconContainer>
+              )}
             </Transition>
           )}
         </Wrapper>
@@ -64,10 +66,10 @@ const SkillsIcons: React.FC = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-flow: row wrap;
   margin-top: 40px;
-  height: 400px;
+  height: 300px;
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
     height: 360px;
@@ -86,44 +88,36 @@ const Wrapper = styled.div`
   }
 
   svg {
-    width: 60px;
-    height: 48px;
-    padding: 15px 10px;
+    width: 50px;
+    height: 38px;
+
+    @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
+      width: 60px;
+      height: 48px;
+    }
 
     @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
       width: 80x;
       height: 58px;
-      padding: 15px 25px;
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
       width: 90px;
       height: 64px;
-      padding: 25px 15px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
-      padding: 25px 20px;
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
       width: 100px;
       height: 84px;
-      padding: 25px 25px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
-      padding: 25px 22px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.rwd.desktop.l}) {
-      padding: 25px 30px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
-      padding: 25px 33px;
     }
   }
+`
+
+const IconContainer = styled.div`
+  flex: 0 1 calc(20% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export default SkillsIcons
