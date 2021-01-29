@@ -3,7 +3,6 @@ module.exports = {
     title: 'Adam Młynarczyk Portfolio',
     description: 'This page is about my frontend passion and my skills',
     author: '@mlynek600',
-    // siteUrl: '',
     keywords: ['Frontend developer'],
   },
   plugins: [
