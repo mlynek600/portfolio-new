@@ -33,10 +33,10 @@ const ProjectsList: React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
   max-width: 90vw;
 
-  @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
     margin-top: 70px;
   }
 
