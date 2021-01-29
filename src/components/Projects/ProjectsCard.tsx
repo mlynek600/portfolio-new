@@ -1,4 +1,5 @@
 import React from 'react'
+
 import styled from 'styled-components'
 import GithubIcon from '../../images/projects/githubIconGray.svg'
 import { useWindowSize } from '../../hooks'
@@ -8,9 +9,7 @@ type ProjectsCardProps = {
   description: string
   link: string
   icon: JSX.Element
-  isCommercialCategory: boolean
-
-  onProjectLinkClick: (link: string) => Promise<void>
+  type: string
 }
 
 const ProjectsCard: React.FC<ProjectsCardProps> = ({
@@ -18,35 +17,42 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
   description,
   link,
   icon,
-  isCommercialCategory,
-
-  onProjectLinkClick,
+  type,
 }) => {
   const { width } = useWindowSize()
 
   const isMobileNav = width < 900 ? true : false
 
-  const githubIconElement = !isCommercialCategory && (
-    <GithubIconButton onClick={() => onProjectLinkClick(link)}>
-      <GithubIcon />
-    </GithubIconButton>
+  const isCommercialProject = type === 'Commercial'
+
+  const githubIconElement = !isCommercialProject && (
+    <LinkContainer>
+      <a href={link}>
+        <GithubIcon />
+      </a>
+    </LinkContainer>
   )
 
-  const titleElement = !isCommercialCategory && <Title>{name}</Title>
+  const titleElement = !isCommercialProject && <Title>{name}</Title>
 
-  const linkElement = isCommercialCategory && (
-    <LinkButton onClick={() => onProjectLinkClick(link)}>
-      <LinkText>LINK</LinkText>
-    </LinkButton>
+  const linkElement = isCommercialProject && (
+    <LinkContainer>
+      <a href={link}>
+        <LinkText>LINK</LinkText>
+      </a>
+    </LinkContainer>
   )
 
   return (
     <Container isMobileNav={isMobileNav}>
       <Card>
+        <Type isCommercial={isCommercialProject}>{type}</Type>
         <IconContainer>{icon}</IconContainer>
         {titleElement}
 
-        <Description>{description}</Description>
+        <Description isCommercial={isCommercialProject}>
+          {description}
+        </Description>
 
         {githubIconElement}
         {linkElement}
@@ -76,11 +82,27 @@ const Card = styled.div<{ centered?: boolean }>`
   align-items: center;
   min-width: 250px;
   max-width: 300px;
-  height: 400px;
+  height: 410px;
 
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
     max-width: 400px;
+    height: 430px;
   }
+
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
+    height: 460px;
+  }
+`
+
+const Type = styled.div<{ isCommercial: boolean }>`
+  text-align: right;
+  width: 100%;
+  font-size: ${({ theme }) => theme.fontSize.smallText};
+  padding-bottom: 5px;
+  color: ${props =>
+    props.isCommercial
+      ? ({ theme }) => theme.colors.red
+      : ({ theme }) => theme.colors.purple};
 `
 
 const Title = styled.h1`
@@ -96,20 +118,20 @@ const Title = styled.h1`
   }
 `
 
-const Description = styled.p`
+const Description = styled.p<{ isCommercial: boolean }>`
   margin-bottom: 25px;
-  margin-top: 25px;
   color: ${({ theme }) => theme.colors.darkGreen};
   font-size: ${({ theme }) => theme.fontSize.smallText};
   text-align: center;
+  margin-top: ${props => (props.isCommercial ? '59px' : '20px')};
 
-  @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
     font-size: ${({ theme }) => theme.fontSize.text};
     margin-bottom: 30px;
   }
 `
 
-const GithubIconButton = styled.button`
+const LinkContainer = styled.div`
   position: absolute;
   bottom: 35px;
 
@@ -133,11 +155,6 @@ const IconContainer = styled.div`
     width: 80%;
     padding: 20px;
   }
-`
-
-const LinkButton = styled.button`
-  position: absolute;
-  bottom: 50px;
 `
 
 const LinkText = styled.p`

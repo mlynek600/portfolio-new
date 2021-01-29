@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import {
   FadeInAnimation,
   ContentContainer,
-  GridContainer,
   Wrapper as ContentWrapper,
 } from '../UI'
 
@@ -116,12 +115,6 @@ const FooterContainer = styled.div`
     @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
       padding-bottom: 120px;
       padding-top: 100px;
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-      ${GridContainer} {
-        grid-column: -1/1;
-      }
     }
 
     @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {

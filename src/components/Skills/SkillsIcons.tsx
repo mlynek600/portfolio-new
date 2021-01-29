@@ -16,6 +16,8 @@ import GitIcon from '../../images/skills/gitIcon.svg'
 import GraphQLIcon from '../../images/skills/graphqlIcon.svg'
 import JestIcon from '../../images/skills/jestIcon.svg'
 import JiraIcon from '../../images/skills/jiraIcon.svg'
+import VSCodeIcon from '../../images/skills/vscodeIcon.svg'
+
 import VisibilitySensor from '../VisibilitySensor/VisibilitySensor'
 
 const SkillsIcons: React.FC = () => {
@@ -34,6 +36,7 @@ const SkillsIcons: React.FC = () => {
     <JestIcon key="JestIcon" />,
     <FigmaIcon key="FigmaIcon" />,
     <JiraIcon key="JiraIcon" />,
+    <VSCodeIcon key="VSCodeIcon" />,
   ]
 
   return (

@@ -13,7 +13,7 @@ export const ContentContainer: React.FC<ContentContainerProps> = ({
   </Wrapper>
 )
 
-export const GridContainer = styled.div`
+const GridContainer = styled.div`
   display: grid;
   grid-column: 1/-1;
 

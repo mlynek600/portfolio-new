@@ -13,16 +13,16 @@ export const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const { width } = useWindowSize()
 
   const deviceType =
-    width < 1024 ? (width < 768 ? 'mobile' : 'tablet') : 'desktop'
+    width < 1440 ? (width < 768 ? 'mobile' : 'tablet') : 'desktop'
 
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1440 },
       items: 3,
       slidesToSlide: 1,
     },
     tablet: {
-      breakpoint: { max: 1023, min: 768 },
+      breakpoint: { max: 1439, min: 768 },
       items: 2,
       slidesToSlide: 1,
     },

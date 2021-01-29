@@ -2,80 +2,49 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { useWindowSize } from '../../hooks'
-
 import { Carousel } from '../UI'
 
 import ProjectsCard from './ProjectsCard'
 import projectsData from './projectsData'
 
-type ProjectsListProps = {
-  category: 'Commercial' | 'Own'
-
-  onProjectLinkClick: (link: string) => Promise<void>
-}
-
-const ProjectsList: React.FC<ProjectsListProps> = ({
-  category,
-
-  onProjectLinkClick,
-}) => {
-  const isCommercialCategory = category === 'Commercial'
-
-  const { width } = useWindowSize()
-
-  const deviceType =
-    width < 1024 ? (width < 768 ? 'mobile' : 'tablet') : 'desktop'
-
-  const projectsCategoryData = isCommercialCategory
-    ? projectsData.commercialProjects
-    : projectsData.ownProjects
-
-  const cardElements = projectsCategoryData.map(data => {
-    const { name, icon, description, link } = data
+const ProjectsList: React.FC = () => {
+  const cardElements = projectsData.map(data => {
+    const { name, icon, description, link, type } = data
 
     return (
       <ProjectsCard
-        onProjectLinkClick={onProjectLinkClick}
         icon={icon}
         link={link}
         key={name}
         name={name}
         description={description}
-        isCommercialCategory={isCommercialCategory}
+        type={type}
       ></ProjectsCard>
     )
   })
 
-  const commercialProjects =
-    deviceType !== 'desktop' ? (
-      <Carousel>{cardElements}</Carousel>
-    ) : (
-      cardElements
-    )
-
-  const ownProjects = <Carousel>{cardElements}</Carousel>
-
-  const projectsElement = isCommercialCategory
-    ? commercialProjects
-    : ownProjects
-
   return (
     <Wrapper>
-      <ProjectsCardsContainer>{projectsElement}</ProjectsCardsContainer>
+      <ProjectsCardsContainer>
+        <Carousel>{cardElements}</Carousel>
+      </ProjectsCardsContainer>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   max-width: 90vw;
+
+  @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
+    margin-top: 70px;
+  }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.s}) {
     max-width: 80vw;
   }
 
-  @media (min-width: ${({ theme }) => theme.rwd.desktop.l}) {
+  @media (min-width: ${({ theme }) => theme.rwd.desktop.xl}) {
     max-width: 65vw;
   }
 `

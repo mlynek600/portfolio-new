@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 8px 0 5px 0;
+  padding: 5px 0;
   background-color: ${({ theme }) => theme.colors.cloud};
   box-shadow: 0px -2px 10px 0px rgba(0, 0, 0, 0.15);
 
