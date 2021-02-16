@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
     </SocialLink>
   ))
 
-  const phone = '+48 788 512 824'
+  const phone = '+48788512824'
   const email = 'adam.wiktor.mlynarczyk@gmail.com'
 
   const year = new Date().getFullYear()
