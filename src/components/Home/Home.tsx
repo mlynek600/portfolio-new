@@ -65,10 +65,8 @@ const Home: React.FC = () => {
               <Text>{aboutMeData.text}</Text>
             </AboutMe>
 
-            <Button>
-              <ButtonText onClick={() => scrollTo('#contact')}>
-                Hire me
-              </ButtonText>
+            <Button onClick={() => scrollTo('#contact')}>
+              <ButtonText>Hire me</ButtonText>
             </Button>
 
             <CodeImageContainer>
