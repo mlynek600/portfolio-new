@@ -10,11 +10,11 @@ import SkillsIcons from './Icons'
 const Skills: React.FC = () => {
   return (
     <Wrapper id="skills">
-      <ContentContainer>
-        <SectionTitle text="Skills" />
+      {/* <ContentContainer> */}
+      <SectionTitle text="Skills" />
 
-        <SkillsIcons />
-      </ContentContainer>
+      <SkillsIcons />
+      {/* </ContentContainer> */}
     </Wrapper>
   )
 }
