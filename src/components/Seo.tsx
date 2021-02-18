@@ -43,7 +43,12 @@ const Seo: React.FC<SeoProps> = ({ description, title, keywords }) => {
           content: metaKeywords.join(','),
         },
       ]}
-    />
+    >
+      <meta
+        http-equiv="ScreenOrientation"
+        content="autoRotate:disabled"
+      ></meta>
+    </Helmet>
   )
 }
 
