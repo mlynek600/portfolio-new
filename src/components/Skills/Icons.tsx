@@ -70,14 +70,14 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-flow: row wrap;
   margin-top: 40px;
-  height: 300px;
+  height: 45vh;
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.s}) {
-    height: 360px;
+    height: 50vh;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.s}) {
-    height: 480px;
+    height: 65vh;
   }
 
   @media (min-width: ${({ theme }) => theme.rwd.desktop.m}) {
