@@ -4,14 +4,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100%;
     background-color: #F3F3F3;
-
-    @media (orientation: portrait) {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-    }
   }
   
   div {
