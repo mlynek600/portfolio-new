@@ -9,7 +9,7 @@ import projectsData from './data'
 
 const ProjectsList: React.FC = () => {
   const cardElements = projectsData.map(data => {
-    const { name, icon, description, link, type } = data
+    const { name, icon, description, link } = data
 
     return (
       <ProjectsCard
@@ -18,7 +18,6 @@ const ProjectsList: React.FC = () => {
         key={name}
         name={name}
         description={description}
-        type={type}
       ></ProjectsCard>
     )
   })

@@ -10,23 +10,19 @@ type ProjectsCardProps = {
   description: string
   link: string
   icon: JSX.Element
-  type: string
 }
 
 const ProjectsCard: React.FC<ProjectsCardProps> = ({
   name,
   description,
   link,
-  icon,
-  type,
+  icon
 }) => {
   const { width } = useWindowSize()
 
   const isMobileNav = width < 900 ? true : false
 
-  const isCommercialProject = type === 'Commercial'
-
-  const githubIconElement = !isCommercialProject && (
+  const githubIconElement = (
     <LinkContainer>
       <a href={link}>
         <GithubIcon />
@@ -34,32 +30,20 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
     </LinkContainer>
   )
 
-  const titleElement = !isCommercialProject && <Title>{name}</Title>
-
-  const linkElement = isCommercialProject && (
-    <LinkContainer>
-      <a href={link}>
-        <LinkText>LINK</LinkText>
-      </a>
-    </LinkContainer>
-  )
+  const titleElement = <Title>{name}</Title>
 
   return (
     <Container isMobileNav={isMobileNav}>
       <Card>
-        <Type isCommercial={isCommercialProject}>{type}</Type>
-
         <IconContainer>{icon}</IconContainer>
 
         {titleElement}
 
-        <Description isCommercial={isCommercialProject}>
+        <Description>
           {description}
         </Description>
 
         {githubIconElement}
-
-        {linkElement}
       </Card>
     </Container>
   )
@@ -98,17 +82,6 @@ const Card = styled.div<{ centered?: boolean }>`
   }
 `
 
-const Type = styled.div<{ isCommercial: boolean }>`
-  text-align: right;
-  width: 100%;
-  font-size: ${({ theme }) => theme.fontSize.smallText};
-  padding-bottom: 5px;
-  color: ${props =>
-    props.isCommercial
-      ? ({ theme }) => theme.colors.red
-      : ({ theme }) => theme.colors.purple};
-`
-
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.bigText};
   color: ${({ theme }) => theme.colors.purple};
@@ -122,12 +95,12 @@ const Title = styled.h1`
   }
 `
 
-const Description = styled.p<{ isCommercial: boolean }>`
+const Description = styled.p`
   margin-bottom: 25px;
   color: ${({ theme }) => theme.colors.darkGreen};
   font-size: ${({ theme }) => theme.fontSize.smallText};
   text-align: center;
-  margin-top: ${props => (props.isCommercial ? '59px' : '20px')};
+  margin-top: '20px';
 
   @media (min-width: ${({ theme }) => theme.rwd.tablet.m}) {
     font-size: ${({ theme }) => theme.fontSize.text};
