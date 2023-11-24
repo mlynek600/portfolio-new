@@ -85,6 +85,7 @@ const Card = styled.div<{ centered?: boolean }>`
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.bigText};
   color: ${({ theme }) => theme.colors.purple};
+  margin-bottom: 20px;
 
   @media (min-width: ${({ theme }) => theme.rwd.mobile.m}) {
     font-size: ${({ theme }) => theme.fontSize.s25};
